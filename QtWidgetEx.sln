@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtWidgetEx", "QtWidgetEx\QtWidgetEx.vcxproj", "{D2273DC1-2704-49BE-8210-2A5387B04D65}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtWidgetExPlugin", "QtWidgetExPlugin\QtWidgetExPlugin.vcxproj", "{E40F297C-ED4C-42A4-95C3-A3AD3341AA86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2273DC1-2704-49BE-8210-2A5387B04D65}.Debug|x86.ActiveCfg = Debug|Win32
+		{D2273DC1-2704-49BE-8210-2A5387B04D65}.Debug|x86.Build.0 = Debug|Win32
+		{D2273DC1-2704-49BE-8210-2A5387B04D65}.Release|x86.ActiveCfg = Release|Win32
+		{D2273DC1-2704-49BE-8210-2A5387B04D65}.Release|x86.Build.0 = Release|Win32
+		{E40F297C-ED4C-42A4-95C3-A3AD3341AA86}.Debug|x86.ActiveCfg = Debug|Win32
+		{E40F297C-ED4C-42A4-95C3-A3AD3341AA86}.Debug|x86.Build.0 = Debug|Win32
+		{E40F297C-ED4C-42A4-95C3-A3AD3341AA86}.Release|x86.ActiveCfg = Release|Win32
+		{E40F297C-ED4C-42A4-95C3-A3AD3341AA86}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA77D3BB-6FC3-493F-8D60-B68C919A80AE}
+	EndGlobalSection
+EndGlobal
