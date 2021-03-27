@@ -17,6 +17,12 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Header Files\display">
+      <UniqueIdentifier>{9b834da6-8792-431f-a992-0165453a5ee9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\display">
+      <UniqueIdentifier>{6d7a73df-68e3-4bfa-9f3c-5b39bbea5ce5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtWidgetExPlugin.h">

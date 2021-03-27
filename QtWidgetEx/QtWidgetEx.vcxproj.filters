@@ -17,5 +17,47 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Header Files\display">
+      <UniqueIdentifier>{c709f1d1-20f6-4b2d-a3fb-b2e68bdda568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\display">
+      <UniqueIdentifier>{22c78700-a3d1-4f66-bffd-01d1622274dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\interface">
+      <UniqueIdentifier>{89740885-1c88-481e-9457-6ef39545ddab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interface">
+      <UniqueIdentifier>{5842add4-faf0-447d-a5af-e72133626828}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\display\QLabelEx.cpp">
+      <Filter>Source Files\display</Filter>
+    </ClCompile>
+    <ClCompile Include="src\interface\TextSetterInterface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="src\interface\AsyncDataSetter.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="src\interface\ImageSetterInterface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\QLabelEx.h">
+      <Filter>Header Files\display</Filter>
+    </ClInclude>
+    <ClInclude Include="include\interface\TextSetterInterface.h">
+      <Filter>Header Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\interface\ImageSetterInterface.h">
+      <Filter>Header Files\interface</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="include\interface\AsyncDataSetter.h">
+      <Filter>Header Files\interface</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>
