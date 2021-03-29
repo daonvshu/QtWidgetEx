@@ -6,6 +6,7 @@ QLabelEx::QLabelEx(const QString& text, QWidget* parent, Qt::WindowFlags f)
     : QLabel(text, parent, f)
     , text(this)
     , image(this)
+    , press(this)
 {
 }
 
@@ -24,3 +25,4 @@ void QLabelEx::setImageSync(const QImage& image) {
 void QLabelEx::setBitmapSync(const QBitmap& bitmap) {
     setMask(bitmap);
 }
+

@@ -31,5 +31,18 @@
     <ClCompile Include="QtWidgetExPlugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <QtMoc Include="display\QLabelExPlugin.h">
+      <Filter>Header Files\display</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="display\QLabelExPlugin.cpp">
+      <Filter>Source Files\display</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="formeditor.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>

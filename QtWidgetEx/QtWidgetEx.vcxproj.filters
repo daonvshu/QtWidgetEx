@@ -29,6 +29,12 @@
     <Filter Include="Source Files\interface">
       <UniqueIdentifier>{5842add4-faf0-447d-a5af-e72133626828}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\eventex">
+      <UniqueIdentifier>{be41b821-2938-445b-9682-c169aaa9a547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\eventex">
+      <UniqueIdentifier>{cf79cab7-7213-4b8c-98f7-c88c9e359f44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\display\QLabelEx.cpp">
@@ -43,21 +49,27 @@
     <ClCompile Include="src\interface\ImageSetterInterface.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="src\eventex\MouseEventEx.cpp">
+      <Filter>Source Files\eventex</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\QLabelEx.h">
-      <Filter>Header Files\display</Filter>
-    </ClInclude>
     <ClInclude Include="include\interface\TextSetterInterface.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
     <ClInclude Include="include\interface\ImageSetterInterface.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
+    <ClInclude Include="include\eventex\MouseEventEx.h">
+      <Filter>Header Files\eventex</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\interface\AsyncDataSetter.h">
       <Filter>Header Files\interface</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QLabelEx.h">
+      <Filter>Header Files\display</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
