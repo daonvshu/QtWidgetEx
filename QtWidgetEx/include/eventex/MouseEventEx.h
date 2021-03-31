@@ -13,7 +13,7 @@ public:
     void operator+=(const std::function<void()>& caller);
 
     template<typename T>
-    MouseEventEx& addBinder(T* t, const std::function<void(T*)>& memberCaller);
+    MouseEventEx& add(T* t, const std::function<void(T*)>& memberCaller);
 
 protected:
     bool eventFilter(QObject* watched, QEvent* event) override;
@@ -32,7 +32,7 @@ private:
 };
 
 template<typename T>
-inline MouseEventEx& MouseEventEx::addBinder(T* t, const std::function<void(T*)>& memberCaller) {
+inline MouseEventEx& MouseEventEx::add(T* t, const std::function<void(T*)>& memberCaller) {
     eventCaller << [=] {
         memberCaller(t);
     };

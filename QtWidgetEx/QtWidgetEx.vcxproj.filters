@@ -35,6 +35,12 @@
     <Filter Include="Source Files\eventex">
       <UniqueIdentifier>{cf79cab7-7213-4b8c-98f7-c88c9e359f44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\buttons">
+      <UniqueIdentifier>{5ee327cd-8960-4c17-b29e-df3df32fd915}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\buttons">
+      <UniqueIdentifier>{8eff2886-026e-4375-b2a4-6540bf2664a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\display\QLabelEx.cpp">
@@ -52,6 +58,9 @@
     <ClCompile Include="src\eventex\MouseEventEx.cpp">
       <Filter>Source Files\eventex</Filter>
     </ClCompile>
+    <ClCompile Include="src\buttons\QPushButtonEx.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -63,6 +72,9 @@
     <ClInclude Include="include\eventex\MouseEventEx.h">
       <Filter>Header Files\eventex</Filter>
     </ClInclude>
+    <ClInclude Include="include\eventex\SimpleEventEx.h">
+      <Filter>Header Files\eventex</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\interface\AsyncDataSetter.h">
@@ -70,6 +82,9 @@
     </QtMoc>
     <QtMoc Include="include\QLabelEx.h">
       <Filter>Header Files\display</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QPushButtonEx.h">
+      <Filter>Header Files\buttons</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
