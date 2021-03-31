@@ -31,8 +31,8 @@ void MouseEventEx::operator+=(const std::function<void()>& caller) {
 
 bool MouseEventEx::eventFilter(QObject* watched, QEvent* event) {
     if (watched == parent()) {
-        if (typeid(event) == typeid(QMouseEvent)) {
-            auto mouseEvent = dynamic_cast<QMouseEvent*>(event);
+        auto mouseEvent = dynamic_cast<QMouseEvent*>(event);
+        if (mouseEvent != nullptr) {
             if (mouseEvent->type() == QEvent::MouseButtonPress) {
                 mousePressed = false;
                 if (pressType == LEFT_MOUSE_PRESS) {
@@ -59,6 +59,7 @@ bool MouseEventEx::eventFilter(QObject* watched, QEvent* event) {
                 }
                 mousePressed = false;
             }
+            return true;
         }
     }
     return QObject::eventFilter(watched, event);
