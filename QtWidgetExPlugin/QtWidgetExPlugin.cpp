@@ -4,11 +4,16 @@
 
 #include "buttons/QPushButtonExPlugin.h"
 
+#include "input/QLineEditExPlugin.h"
+
 QtWidgetExPlugin::QtWidgetExPlugin(QObject* parent)
     : QObject(parent)
 {
     widgets << new QLabelExPlugin(this);
+
     widgets << new QPushButtonExPlugin(this);
+
+    widgets << new QLineEditExPlugin(this);
 }
 
 QList<QDesignerCustomWidgetInterface*> QtWidgetExPlugin::customWidgets() const {

@@ -4,6 +4,9 @@
 #include <qvariant.h>
 #include <qmutex.h>
 
+#include "../exglobal.h"
+
+EX_BEGIN_NAMESPACE
 class AsyncDataSetter : public QObject {
     Q_OBJECT
 
@@ -27,3 +30,4 @@ protected:
 
     virtual void setDataInMainThread(const QVariant& value) = 0;
 };
+EX_END_NAMESPACE

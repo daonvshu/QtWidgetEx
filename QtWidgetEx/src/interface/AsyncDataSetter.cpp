@@ -2,6 +2,7 @@
 
 #include <qthread.h>
 
+EX_BEGIN_NAMESPACE
 AsyncDataSetter::AsyncDataSetter(QObject* parent)
     : QObject(parent)
 {
@@ -34,3 +35,4 @@ void AsyncDataSetter::setValue(const QVariant& value) {
         }
     }
 }
+EX_END_NAMESPACE

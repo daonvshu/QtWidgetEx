@@ -6,7 +6,7 @@
 
 #include "eventex/SimpleEventEx.h"
 
-class QPushButtonEx : public QPushButton, TextSetterCallback {
+class QPushButtonEx : public QPushButton {
     Q_OBJECT
 
 public:
@@ -14,13 +14,10 @@ public:
     explicit QPushButtonEx(const QString& text, QWidget* parent = nullptr);
     QPushButtonEx(const QIcon& icon, const QString& text, QWidget* parent = nullptr);
 
-    SimpleEventEx<QPushButtonEx, bool> clickEvt;
-    SimpleEventEx<QPushButtonEx> pressEvt;
-    SimpleEventEx<QPushButtonEx> releaseEvt;
-    SimpleEventEx<QPushButtonEx, bool> toggleEvt;
+    _widget_ex::SimpleEventEx<QPushButtonEx, bool> clickEvt;
+    _widget_ex::SimpleEventEx<QPushButtonEx> pressEvt;
+    _widget_ex::SimpleEventEx<QPushButtonEx> releaseEvt;
+    _widget_ex::SimpleEventEx<QPushButtonEx, bool> toggleEvt;
 
-    TextSetterInterface text;
-
-protected:
-    void setTextSync(const QString&) override;
+    _widget_ex::TextSetterInterface text;
 };

@@ -6,6 +6,7 @@
 #include <qimage.h>
 #include <qbitmap.h>
 
+EX_BEGIN_NAMESPACE
 class ImageSetterCallback {
 public:
     virtual void setPixmapSync(const QPixmap&) = 0;
@@ -29,3 +30,4 @@ private:
 private:
     ImageSetterCallback* imageSetterCallback;
 };
+EX_END_NAMESPACE

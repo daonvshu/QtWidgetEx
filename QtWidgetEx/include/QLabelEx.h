@@ -7,22 +7,21 @@
 
 #include "eventex/MouseEventEx.h"
 
-class QLabelEx : public QLabel, TextSetterCallback, ImageSetterCallback {
+class QLabelEx: public QLabel, _widget_ex::ImageSetterCallback
+{
     Q_OBJECT
 
 public:
     explicit QLabelEx(const QString& text, QWidget* parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
     explicit QLabelEx(QWidget* parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
 
-    TextSetterInterface text;
-    ImageSetterInterface image;
+    _widget_ex::TextSetterInterface text;
+    _widget_ex::ImageSetterInterface image;
 
-    MouseEventEx press;
+    _widget_ex::MouseEventEx press;
 
 protected:
-    void setTextSync(const QString&) override;
-
-    void setPixmapSync(const QPixmap&) override;
-    void setImageSync(const QImage&) override;
-    void setBitmapSync(const QBitmap&) override;
+    void setPixmapSync(const QPixmap& pixmap) override;
+    void setImageSync(const QImage& image) override;
+    void setBitmapSync(const QBitmap& bitmap) override;
 };

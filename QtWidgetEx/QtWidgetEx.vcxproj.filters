@@ -41,6 +41,12 @@
     <Filter Include="Source Files\buttons">
       <UniqueIdentifier>{8eff2886-026e-4375-b2a4-6540bf2664a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{13f395aa-9a3a-4285-9bdf-930cdc4fbd9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{03da0b21-5e64-4b43-a7cd-ad3f123df85e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\display\QLabelEx.cpp">
@@ -61,6 +67,9 @@
     <ClCompile Include="src\buttons\QPushButtonEx.cpp">
       <Filter>Source Files\buttons</Filter>
     </ClCompile>
+    <ClCompile Include="src\input\QLineEditEx.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -75,6 +84,12 @@
     <ClInclude Include="include\eventex\SimpleEventEx.h">
       <Filter>Header Files\eventex</Filter>
     </ClInclude>
+    <ClInclude Include="include\interface\SimpleDataSetter.h">
+      <Filter>Header Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\exglobal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\interface\AsyncDataSetter.h">
@@ -85,6 +100,9 @@
     </QtMoc>
     <QtMoc Include="include\QPushButtonEx.h">
       <Filter>Header Files\buttons</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QLineEditEx.h">
+      <Filter>Header Files\input</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

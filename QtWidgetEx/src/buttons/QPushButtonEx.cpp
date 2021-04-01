@@ -1,7 +1,7 @@
 #include "QPushButtonEx.h"
 
-QPushButtonEx::QPushButtonEx(QWidget* parent): QPushButtonEx(QString(), parent) {
-}
+EX_USING_NAMESPACE
+QPushButtonEx::QPushButtonEx(QWidget* parent): QPushButtonEx(QString(), parent) {}
 
 QPushButtonEx::QPushButtonEx(const QString& text, QWidget* parent): QPushButtonEx(QIcon(), text, parent) {
 }
@@ -12,11 +12,6 @@ QPushButtonEx::QPushButtonEx(const QIcon& icon, const QString& text, QWidget* pa
     , pressEvt(this, &QPushButtonEx::pressed)
     , releaseEvt(this, &QPushButtonEx::released)
     , toggleEvt(this, &QPushButtonEx::toggled)
-    , text(this, this)
+    , text(new TextSetterCallback<QPushButton>(this))
 {
-
-}
-
-void QPushButtonEx::setTextSync(const QString& string) {
-    setText(string);
 }

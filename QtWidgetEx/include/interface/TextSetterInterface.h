@@ -1,26 +1,28 @@
 #pragma once
 
-#include "AsyncDataSetter.h"
+#include "SimpleDataSetter.h"
 
-class TextSetterCallback {
+EX_BEGIN_NAMESPACE
+class TextSetterInterface: public SimpleAsyncDataSetter<QString> {
 public:
-    virtual void setTextSync(const QString&) = 0;
-};
+    using SimpleAsyncDataSetter::SimpleAsyncDataSetter;
 
-class TextSetterInterface: AsyncDataSetter {
-public:
-    TextSetterInterface(TextSetterCallback* textSetterCallback, QObject* parent = nullptr);
+    QVariant& last();
 
     void operator=(const QVariant& data);
-
-    QString operator()() const;
-
-    typedef QString(*DataConvert)(const QVariant&);
-    DataConvert dataConvert;
-
-private:
-    void setDataInMainThread(const QVariant& value) override;
-
-private:
-    TextSetterCallback* textSetterCallback;
 };
+
+template<typename T>
+class TextSetterCallback : public SimpleDataTargetSetterCallback<QString, T> {
+public:
+    using SimpleDataTargetSetterCallback::SimpleDataTargetSetterCallback;
+
+    void setData(const QString& text) override {
+        target->setText(text);
+    }
+
+    QString getData() override {
+        return target->text();
+    }
+};
+EX_END_NAMESPACE

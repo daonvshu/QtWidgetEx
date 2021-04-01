@@ -1,5 +1,6 @@
 ﻿#include "interface/ImageSetterInterface.h"
 
+EX_BEGIN_NAMESPACE
 ImageSetterInterface::ImageSetterInterface(ImageSetterCallback* imageSetterCallback, QObject* parent)
     : AsyncDataSetter(parent)
     , imageSetterCallback(imageSetterCallback)
@@ -37,3 +38,4 @@ void ImageSetterInterface::setDataInMainThread(const QVariant& value) {
         }
     }
 }
+EX_END_NAMESPACE

@@ -3,6 +3,9 @@
 #include <qwidget.h>
 #include <functional>
 
+#include "../exglobal.h"
+
+EX_BEGIN_NAMESPACE
 class MouseEventEx: QObject {
 public:
     explicit MouseEventEx(QWidget* parent);
@@ -38,3 +41,4 @@ inline MouseEventEx& MouseEventEx::add(T* t, const std::function<void(T*)>& memb
     };
     return *this;
 }
+EX_END_NAMESPACE

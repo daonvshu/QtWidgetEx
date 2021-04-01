@@ -2,6 +2,7 @@
 
 #include <qevent.h>
 
+EX_BEGIN_NAMESPACE
 MouseEventEx::MouseEventEx(QWidget* parent)
     : QObject(parent)
     , pressType(LEFT_MOUSE_PRESS)
@@ -64,3 +65,4 @@ bool MouseEventEx::eventFilter(QObject* watched, QEvent* event) {
     }
     return QObject::eventFilter(watched, event);
 }
+EX_END_NAMESPACE

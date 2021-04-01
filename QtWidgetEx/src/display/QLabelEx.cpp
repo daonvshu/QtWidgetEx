@@ -1,17 +1,14 @@
 #include "QLabelEx.h"
 
+EX_USING_NAMESPACE
 QLabelEx::QLabelEx(QWidget* parent, Qt::WindowFlags f): QLabelEx(QString(), parent, f) {}
 
 QLabelEx::QLabelEx(const QString& text, QWidget* parent, Qt::WindowFlags f)
     : QLabel(text, parent, f)
-    , text(this)
+    , text(new TextSetterCallback<QLabel>(this))
     , image(this)
     , press(this)
 {
-}
-
-void QLabelEx::setTextSync(const QString& string) {
-    setText(string);
 }
 
 void QLabelEx::setPixmapSync(const QPixmap& pixmap) {
