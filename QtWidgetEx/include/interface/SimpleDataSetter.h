@@ -22,7 +22,7 @@ protected:
 template<typename T>
 class SimpleAsyncDataSetter : protected AsyncDataSetter {
 public:
-    SimpleAsyncDataSetter(SimpleDataSetterCallback<T>* callback, QObject* parent = nullptr)
+    explicit SimpleAsyncDataSetter(SimpleDataSetterCallback<T>* callback, QObject* parent = nullptr)
         : AsyncDataSetter(parent)
         , callback(callback)
         , dataConvert(nullptr)

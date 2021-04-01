@@ -11,7 +11,7 @@ class AsyncDataSetter : public QObject {
     Q_OBJECT
 
 public:
-    AsyncDataSetter(QObject* parent = nullptr);
+    explicit AsyncDataSetter(QObject* parent = nullptr);
 
 signals:
     void setDataAsync(QPrivateSignal);

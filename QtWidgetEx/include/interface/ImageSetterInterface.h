@@ -16,11 +16,12 @@ public:
 
 class ImageSetterInterface: AsyncDataSetter {
 public:
-    ImageSetterInterface(ImageSetterCallback* imageSetterCallback, QObject* parent = nullptr);
+    explicit ImageSetterInterface(ImageSetterCallback* imageSetterCallback, QObject* parent = nullptr);
 
 private:
     void setDataInMainThread(const QVariant& value) override;
 
+public:
     void operator=(const QPixmap& pixmap);
     void operator=(const QImage& image);
     void operator=(const QBitmap& bitmap);

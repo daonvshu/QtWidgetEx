@@ -5,7 +5,8 @@
 EX_BEGIN_NAMESPACE
 class TextSetterInterface: public SimpleAsyncDataSetter<QString> {
 public:
-    using SimpleAsyncDataSetter::SimpleAsyncDataSetter;
+    explicit TextSetterInterface(SimpleDataSetterCallback<QString>* callback, QObject* parent = nullptr)
+        : SimpleAsyncDataSetter<QString>(callback, parent) {}
 
     QVariant& last();
 
