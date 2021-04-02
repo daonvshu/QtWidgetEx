@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\lifecycle">
+      <UniqueIdentifier>{23763377-0f93-4907-9091-bdf1e132f2d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lifecycle">
+      <UniqueIdentifier>{ac60fb33-674c-46a7-aaa4-2ba1aff0456a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Form Files\pages">
+      <UniqueIdentifier>{f86f9bfe-17bc-41e8-9bcd-94ffdcb1630c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pages">
+      <UniqueIdentifier>{d78b14e7-5767-4f25-8b84-12506cf00719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pages">
+      <UniqueIdentifier>{650cba64-6321-402e-8f26-48391ce35b6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{7ed095f4-17b8-401d-af70-687317e45071}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="WidgetExTest.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtUic Include="WidgetExTest.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtMoc Include="WidgetExTest.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="WidgetExTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lifecycle\lifecycle\FragmentManager.cpp">
+      <Filter>Source Files\lifecycle</Filter>
+    </ClCompile>
+    <ClCompile Include="pages\DisplayWidgetsPage.cpp">
+      <Filter>Source Files\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="pages\DisplayWidgetsPage_p.cpp">
+      <Filter>Source Files\pages</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lifecycle\lifecycle\FragmentManager.h">
+      <Filter>Header Files\lifecycle</Filter>
+    </ClInclude>
+    <ClInclude Include="lifecycle\lifecycle\Impl.h">
+      <Filter>Header Files\lifecycle</Filter>
+    </ClInclude>
+    <ClInclude Include="pages\DisplayWidgetsPage.h">
+      <Filter>Header Files\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="pages\DisplayWidgetsPage_p.h">
+      <Filter>Header Files\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\RunnableHandler.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="lifecycle\lifecycle\LifeCycleWidget.h">
+      <Filter>Header Files\lifecycle</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="pages\DisplayWidgets.ui">
+      <Filter>Form Files\pages</Filter>
+    </QtUic>
+  </ItemGroup>
+</Project>

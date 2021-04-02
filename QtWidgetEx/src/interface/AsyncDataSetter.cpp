@@ -25,12 +25,12 @@ void AsyncDataSetter::setValue(const QVariant& value) {
         setDataInMainThread(value);
         lastSetData = value;
     } else {
-        bool hasRequestTask = false;
+        bool needRequestTask = false;
         mutex.lock();
-        hasRequestTask = !pendingData.isNull();
+        needRequestTask = pendingData.isNull();
         pendingData = value;
         mutex.unlock();
-        if (hasRequestTask) {
+        if (needRequestTask) {
             emit setDataAsync(QPrivateSignal());
         }
     }

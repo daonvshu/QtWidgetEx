@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DisplayWidgets</class>
+ <widget class="QWidget" name="DisplayWidgets">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>734</width>
+    <height>450</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>714</width>
+        <height>430</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QCheckBox" name="set_in_work_thread">
+         <property name="text">
+          <string>set in work thread</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>QLabelEx</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0,0">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>set text test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="set_text_test_label">
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_text_set">
+              <property name="text">
+               <string>set</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_text_set_use_converter">
+              <property name="text">
+               <string>set use converter</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,0">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>set image test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="set_image_test_label">
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_img_set">
+              <property name="text">
+               <string>set</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1,1,1">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>press event test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="press_in_lambda">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid gray;</string>
+              </property>
+              <property name="text">
+               <string>press callback in lambda</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="press_in_function">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid gray;</string>
+              </property>
+              <property name="text">
+               <string>press callback in function</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="press_in_member_function">
+              <property name="styleSheet">
+               <string notr="true">border:1px solid gray;</string>
+              </property>
+              <property name="text">
+               <string>press callback in member function</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>274</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QLabelEx</class>
+   <extends>QLabel</extends>
+   <header>QLabelEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QPushButtonEx</class>
+   <extends>QPushButton</extends>
+   <header>QPushButtonEx.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
