@@ -34,7 +34,7 @@ struct DisplayWidgetsPageView : public BaseView<Ui::DisplayWidgets> {
 
 		press_in_function->press += showPressInFunctionCallback;
 
-		press_in_member_function->press.add<DisplayWidgetsPageView>(this, &DisplayWidgetsPageView::showPressInMemberFunctionCallback);
+		press_in_member_function->press.add(this, &DisplayWidgetsPageView::showPressInMemberFunctionCallback);
 	}
 
 	void showPressInMemberFunctionCallback() {

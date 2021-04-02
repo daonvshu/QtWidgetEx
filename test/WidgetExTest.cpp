@@ -3,6 +3,7 @@
 #include "lifecycle/lifecycle/FragmentManager.h"
 
 #include "pages/DisplayWidgetsPage.h"
+#include "pages/ButtonsPage.h"
 
 #include <qstandarditemmodel.h>
 
@@ -13,7 +14,8 @@ WidgetExTest::WidgetExTest(QWidget *parent)
 
     auto fragmentManager = new FragmentManager(ui.stackedWidget);
     fragmentManager->registerPage<
-        DisplayWidgetsPage
+        DisplayWidgetsPage,
+        ButtonsPage
     >();
     fragmentManager->navigateTo("DisplayWidgetsPage");
 
@@ -33,6 +35,7 @@ void WidgetExTest::initWidgetTree() {
     model->appendRow(item);
 
     item = new QStandardItem("Buttons");
+    item->setData("ButtonsPage", Qt::UserRole + 1);
     model->appendRow(item);
 
     item = new QStandardItem("Input Widgets"); 

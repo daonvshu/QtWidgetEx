@@ -57,6 +57,9 @@ QString QLabelExPlugin::domXml() const {
         "   <height>12</height>\n"
         "  </rect>\n"
         " </property>\n"
+        " <property name=\"text\">\n"
+        "  <string>LabelEx</string>\n"
+        " </property>\n"
         "</widget>\n";
 }
 

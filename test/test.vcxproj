@@ -167,10 +167,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="WidgetExTest.qrc" />
+    <QtUic Include="pages\Buttons.ui" />
     <QtUic Include="pages\DisplayWidgets.ui" />
     <QtUic Include="WidgetExTest.ui" />
     <QtMoc Include="WidgetExTest.h" />
     <ClCompile Include="lifecycle\lifecycle\FragmentManager.cpp" />
+    <ClCompile Include="pages\ButtonsPage.cpp" />
+    <ClCompile Include="pages\ButtonsPage_p.cpp" />
     <ClCompile Include="pages\DisplayWidgetsPage.cpp" />
     <ClCompile Include="pages\DisplayWidgetsPage_p.cpp" />
     <ClCompile Include="WidgetExTest.cpp" />
@@ -179,6 +182,8 @@
   <ItemGroup>
     <ClInclude Include="lifecycle\lifecycle\FragmentManager.h" />
     <ClInclude Include="lifecycle\lifecycle\Impl.h" />
+    <ClInclude Include="pages\ButtonsPage.h" />
+    <ClInclude Include="pages\ButtonsPage_p.h" />
     <ClInclude Include="pages\DisplayWidgetsPage.h" />
     <ClInclude Include="pages\DisplayWidgetsPage_p.h" />
     <ClInclude Include="utils\RunnableHandler.h" />

@@ -16,7 +16,12 @@ public:
     void operator+=(const std::function<void()>& caller);
 
     template<typename T>
-    MouseEventEx& add(T* t, const std::function<void(T*)>& memberCaller);
+    MouseEventEx& add(T* t, void(T::*caller)()) {
+        eventCaller << [=] {
+            (t->*caller)();
+        };
+        return *this;
+    }
 
 protected:
     bool eventFilter(QObject* watched, QEvent* event) override;
@@ -33,12 +38,4 @@ private:
 
     QList<std::function<void()>> eventCaller;
 };
-
-template<typename T>
-inline MouseEventEx& MouseEventEx::add(T* t, const std::function<void(T*)>& memberCaller) {
-    eventCaller << [=] {
-        memberCaller(t);
-    };
-    return *this;
-}
 EX_END_NAMESPACE

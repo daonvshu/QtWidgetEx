@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Buttons</class>
+ <widget class="QWidget" name="Buttons">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>449</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>740</width>
+        <height>429</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>QPushButtonEx</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_click1">
+              <property name="text">
+               <string>click lambda</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_click2">
+              <property name="text">
+               <string>click function</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_click3">
+              <property name="text">
+               <string>click member function</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_press1">
+              <property name="text">
+               <string>press lambda</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_press2">
+              <property name="text">
+               <string>press function</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_press3">
+              <property name="text">
+               <string>press member function</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>345</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QPushButtonEx</class>
+   <extends>QPushButton</extends>
+   <header>QPushButtonEx.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

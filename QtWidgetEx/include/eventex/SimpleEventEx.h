@@ -26,6 +26,7 @@ public:
         QObject::connect(parent, parentSignal, caller);
     }
 
+    //qobject member function need
     template<typename K, typename Fun>
     SimpleEventEx& add(K* k, Fun slot) {
         QObject::connect(parent, parentSignal, k, slot, type);

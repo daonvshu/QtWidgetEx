@@ -57,6 +57,9 @@ QString QPushButtonExPlugin::domXml() const {
         "   <height>23</height>\n"
         "  </rect>\n"
         " </property>\n"
+        " <property name=\"text\">\n"
+        "  <string>PushButtonEx</string>\n"
+        " </property>\n"
         "</widget>\n";
 }
 
