@@ -25,7 +25,6 @@ public:
     void operator=(const QPixmap& pixmap);
     void operator=(const QImage& image);
     void operator=(const QBitmap& bitmap);
-    void operator=(const QByteArray& imageData);
     void operator=(const QString& base64Str);
 
 private:

@@ -3,6 +3,9 @@
 
 #include "../utils/RunnableHandler.h"
 
+#include <qbitmap.h>
+#include <qbuffer.h>
+
 DisplayWidgetsPage::DisplayWidgetsPage(QWidget* parent)
 	: LifeCycleWidget(*new DisplayWidgetsPagePrivate, parent)
 {
@@ -54,3 +57,43 @@ void DisplayWidgetsPagePrivate::setLabelExTextTestByConverter() {
 	}
 }
 
+void DisplayWidgetsPagePrivate::setLabelExImgTest() {
+	auto setter = [&] {
+		QImage image(":/WidgetExTest/res/1.png");
+        switch (getImgSetType()) {
+		case 0:
+			setLabelExImg(QPixmap::fromImage(image));
+			break;
+		case 1:
+			setLabelExImg(image);
+			break;
+		case 2:
+			setLabelExImg(QBitmap::fromImage(image));
+			break;
+		case 3:
+		    {
+				QByteArray data;
+				QBuffer buffer(&data);
+				buffer.open(QIODevice::WriteOnly);
+				image.save(&buffer, "JPEG");
+				setLabelExImg(data.toBase64());
+		    }
+			break;
+        }
+	};
+	if (setInThread()) {
+		RunnableHandler<void>::exec(setter);
+	} else {
+		setter();
+	}
+}
+
+void DisplayWidgetsPagePrivate::setLabelExGifTest() {
+	if (setInThread()) {
+		RunnableHandler<void>::exec([&] {
+			setLabelExGif(":/WidgetExTest/res/2.gif");
+		});
+	} else {
+		setLabelExGif(":/WidgetExTest/res/2.gif");
+	}
+}

@@ -70,6 +70,9 @@
     <ClCompile Include="src\input\QLineEditEx.cpp">
       <Filter>Source Files\input</Filter>
     </ClCompile>
+    <ClCompile Include="src\interface\GifSetterInterface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="include\exglobal.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\interface\GifSetterInterface.h">
+      <Filter>Header Files\interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>734</width>
-    <height>450</height>
+    <width>768</width>
+    <height>520</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>714</width>
-        <height>430</height>
+        <width>748</width>
+        <height>500</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -75,7 +75,7 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,0">
+           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1,0,0,0">
             <item>
              <widget class="QLabel" name="label_2">
               <property name="text">
@@ -96,6 +96,61 @@
                <string>set</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_img_set_clear">
+              <property name="text">
+               <string>clear</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="labelex_img_set_type"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,1,0,0,0,0,0">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>gif test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="set_gif_test_label"/>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_gif_set">
+              <property name="text">
+               <string>set</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_gif_start">
+              <property name="text">
+               <string>start</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_gif_stop">
+              <property name="text">
+               <string>stop</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="labelex_gif_pause">
+              <property name="text">
+               <string>pause/resume</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="labelex_gif_speed"/>
             </item>
            </layout>
           </item>

@@ -19,22 +19,22 @@ void ImageSetterInterface::operator=(const QBitmap& bitmap) {
     setValue(bitmap);
 }
 
-void ImageSetterInterface::operator=(const QByteArray& imageData) {
-    setValue(QImage::fromData(imageData));
-}
-
 void ImageSetterInterface::operator=(const QString& base64Str) {
     setValue(QImage::fromData(QByteArray::fromBase64(base64Str.toLatin1())));
 }
 
 void ImageSetterInterface::setDataInMainThread(const QVariant& value) {
     if (imageSetterCallback != nullptr) {
-        if (value.canConvert<QBitmap>()) {
-            imageSetterCallback->setBitmapSync(value.value<QBitmap>());
-        } else if (value.canConvert<QPixmap>()) {
+        switch (value.type()) {
+        case QVariant::Pixmap:
             imageSetterCallback->setPixmapSync(value.value<QPixmap>());
-        } else if (value.canConvert<QImage>()) {
+            break;
+        case QVariant::Image:
             imageSetterCallback->setImageSync(value.value<QImage>());
+            break;
+        case QVariant::Bitmap:
+            imageSetterCallback->setBitmapSync(value.value<QBitmap>());
+            break;
         }
     }
 }

@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="WidgetExTest">
+    <qresource prefix="/WidgetExTest">
+        <file>res/1.png</file>
+        <file>res/2.gif</file>
     </qresource>
 </RCC>

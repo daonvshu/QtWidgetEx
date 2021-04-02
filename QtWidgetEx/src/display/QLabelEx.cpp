@@ -8,6 +8,7 @@ QLabelEx::QLabelEx(const QString& text, QWidget* parent, Qt::WindowFlags f)
     , text(new TextSetterCallback<QLabel>(this))
     , image(this)
     , press(this)
+    , gif(this)
 {
 }
 
@@ -23,3 +24,6 @@ void QLabelEx::setBitmapSync(const QBitmap& bitmap) {
     setMask(bitmap);
 }
 
+void QLabelEx::setMovie(QMovie* movie) {
+    QLabel::setMovie(movie);
+}
