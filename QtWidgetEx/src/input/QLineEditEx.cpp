@@ -65,8 +65,8 @@ void QLineEditEx::setRegExpression(const QString& reg) {
         regExpStr = reg;
         do {
             //like "-int(-1,100)", min -> -1 max -> 100
-            if (reg.startsWith("-int") || reg.startsWith("-double")) {
-                QRegExp rx("(int|double|-?\\d+)");
+            if (reg.startsWith("-int")) {
+                QRegExp rx("(int|-?\\d+)");
                 QStringList list;
                 int pos = 0;
 
@@ -75,22 +75,29 @@ void QLineEditEx::setRegExpression(const QString& reg) {
                     pos += rx.matchedLength();
                 }
 
-                if (list[0] == "int") {
-                    if (list.size() >= 3) {
-                        setValidator(new MyIntValidator(list[1].toInt(), list[2].toInt(), this));
-                        break;
+                if (list.size() >= 3) {
+                    setValidator(new MyIntValidator(list[1].toInt(), list[2].toInt(), this));
+                    break;
+                }
+            } else if (reg.startsWith("-double")) {
+                QRegExp rx("(double|-?\\d+(\\.\\d+)?)");
+                QStringList list;
+                int pos = 0;
+
+                while ((pos = rx.indexIn(reg, pos)) != -1) {
+                    list << rx.cap(1);
+                    pos += rx.matchedLength();
+                }
+
+                if (list.size() >= 3) {
+                    auto validator = new MyDoubleValidator(this);
+                    if (list.size() > 3) {
+                        validator->setRange(list[1].toDouble(), list[2].toDouble(), list[3].toInt());
+                    } else {
+                        validator->setRange(list[1].toDouble(), list[2].toDouble());
                     }
-                } else if (list[0] == "double") {
-                    if (list.size() >= 3) {
-                        auto validator = new MyDoubleValidator(this);
-                        if (list.size() > 3) {
-                            validator->setRange(list[1].toDouble(), list[2].toDouble(), list[3].toInt());
-                        } else {
-                            validator->setRange(list[1].toDouble(), list[2].toDouble());
-                        }
-                        setValidator(validator);
-                        break;
-                    }
+                    setValidator(validator);
+                    break;
                 }
             }
             setValidator(new QRegExpValidator(QRegExp(reg), this));

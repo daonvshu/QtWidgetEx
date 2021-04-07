@@ -73,6 +73,12 @@
     <ClCompile Include="pages\ButtonsPage_p.cpp">
       <Filter>Source Files\pages</Filter>
     </ClCompile>
+    <ClCompile Include="pages\InputWidgetsPage.cpp">
+      <Filter>Source Files\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="pages\InputWidgetsPage_p.cpp">
+      <Filter>Source Files\pages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lifecycle\lifecycle\FragmentManager.h">
@@ -96,6 +102,12 @@
     <ClInclude Include="pages\ButtonsPage_p.h">
       <Filter>Header Files\pages</Filter>
     </ClInclude>
+    <ClInclude Include="pages\InputWidgetsPage.h">
+      <Filter>Header Files\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="pages\InputWidgetsPage_p.h">
+      <Filter>Header Files\pages</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="lifecycle\lifecycle\LifeCycleWidget.h">
@@ -107,6 +119,9 @@
       <Filter>Form Files\pages</Filter>
     </QtUic>
     <QtUic Include="pages\Buttons.ui">
+      <Filter>Form Files\pages</Filter>
+    </QtUic>
+    <QtUic Include="pages\InputWidgets.ui">
       <Filter>Form Files\pages</Filter>
     </QtUic>
   </ItemGroup>

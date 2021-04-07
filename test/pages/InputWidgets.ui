@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InputWidgets</class>
+ <widget class="QWidget" name="InputWidgets">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>771</width>
+    <height>475</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>751</width>
+        <height>455</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QCheckBox" name="set_in_work_thread">
+         <property name="text">
+          <string>set in work thread</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>QLineEditEx</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>read only test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="read_only_test_input">
+              <property name="styleSheet">
+               <string notr="true">QLineEdit:read-only{
+background:lightblue;
+}</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="read_only_set">
+              <property name="text">
+               <string>read only</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>event test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex_edit_finish_test">
+              <property name="placeholderText">
+               <string>edit finished event</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex_return_press_test">
+              <property name="placeholderText">
+               <string>return pressed event</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex_text_change_test">
+              <property name="placeholderText">
+               <string>text changed event</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex_text_edit_test">
+              <property name="placeholderText">
+               <string>text edit event</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="lineeditex_event_test">
+              <property name="text">
+               <string>event</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>regexp test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex_2">
+              <property name="placeholderText">
+               <string>int range validator</string>
+              </property>
+              <property name="regExp" stdset="0">
+               <string>-int(-2,69)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex_3">
+              <property name="placeholderText">
+               <string>double rangle validator</string>
+              </property>
+              <property name="regExp" stdset="0">
+               <string>-double(-4.3,12.8,1)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEditEx" name="lineeditex">
+              <property name="placeholderText">
+               <string>regexp validator</string>
+              </property>
+              <property name="regExp" stdset="0">
+               <string>\d{5}</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QLabelEx</class>
+   <extends>QLabel</extends>
+   <header>QLabelEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QPushButtonEx</class>
+   <extends>QPushButton</extends>
+   <header>QPushButtonEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QLineEditEx</class>
+   <extends>QLineEdit</extends>
+   <header>QLineEditEx.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
