@@ -172,6 +172,7 @@
     <QtUic Include="pages\InputWidgets.ui" />
     <QtUic Include="WidgetExTest.ui" />
     <QtMoc Include="WidgetExTest.h" />
+    <ClCompile Include="AsyncSetterTest.cpp" />
     <ClCompile Include="lifecycle\lifecycle\FragmentManager.cpp" />
     <ClCompile Include="pages\ButtonsPage.cpp" />
     <ClCompile Include="pages\ButtonsPage_p.cpp" />
@@ -183,6 +184,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AsyncSetterTest.h" />
     <ClInclude Include="lifecycle\lifecycle\FragmentManager.h" />
     <ClInclude Include="lifecycle\lifecycle\Impl.h" />
     <ClInclude Include="pages\ButtonsPage.h" />

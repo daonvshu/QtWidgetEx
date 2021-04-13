@@ -79,6 +79,9 @@
     <ClCompile Include="pages\InputWidgetsPage_p.cpp">
       <Filter>Source Files\pages</Filter>
     </ClCompile>
+    <ClCompile Include="AsyncSetterTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lifecycle\lifecycle\FragmentManager.h">
@@ -107,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="pages\InputWidgetsPage_p.h">
       <Filter>Header Files\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="AsyncSetterTest.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

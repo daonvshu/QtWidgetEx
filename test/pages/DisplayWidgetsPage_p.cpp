@@ -3,6 +3,8 @@
 
 #include "ui_DisplayWidgets.h"
 
+#include "../AsyncSetterTest.h"
+
 #include <qmessagebox.h>
 
 QString TextTestDataConverter(const QVariant& data) {
@@ -35,6 +37,10 @@ struct DisplayWidgetsPageView : public BaseView<Ui::DisplayWidgets> {
 		press_in_function->press += showPressInFunctionCallback;
 
 		press_in_member_function->press.add(this, &DisplayWidgetsPageView::showPressInMemberFunctionCallback);
+
+		async_setter_test->clickEvt += [=](bool) {
+			(new AsyncSetterTest(parent))->start();
+		};
 	}
 
 	void showPressInMemberFunctionCallback() {

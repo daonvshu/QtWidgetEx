@@ -30,11 +30,22 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QCheckBox" name="set_in_work_thread">
-         <property name="text">
-          <string>set in work thread</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="1,0">
+         <item>
+          <widget class="QCheckBox" name="set_in_work_thread">
+           <property name="text">
+            <string>set in work thread</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButtonEx" name="async_setter_test">
+           <property name="text">
+            <string>async setter test</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox">
