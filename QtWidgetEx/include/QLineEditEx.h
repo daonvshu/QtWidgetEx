@@ -7,7 +7,9 @@
 
 #include "eventex/SimpleEventEx.h"
 
-class QLineEditEx : public QLineEdit {
+#include "utils/RegExpWidget.h"
+
+class QLineEditEx : public RegExpWidget<QLineEdit> {
     Q_OBJECT
 
     Q_PROPERTY(QString regExp READ getRegExp WRITE setRegExpression)
@@ -23,13 +25,4 @@ public:
     _widget_ex::SimpleEventEx<QLineEditEx> returnPressEvt;
     _widget_ex::SimpleEventEx2<QLineEditEx, QString> textChangeEvt;
     _widget_ex::SimpleEventEx2<QLineEditEx, QString> textEditEvt;
-
-    QString getRegExp() const {
-        return regExpStr;
-    }
-
-    void setRegExpression(const QString& reg);
-
-private:
-    QString regExpStr;
 };

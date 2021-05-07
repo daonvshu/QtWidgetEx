@@ -22,11 +22,13 @@
     <ClCompile Include="src\buttons\QPushButtonEx.cpp" />
     <ClCompile Include="src\display\QLabelEx.cpp" />
     <ClCompile Include="src\eventex\MouseEventEx.cpp" />
+    <ClCompile Include="src\input\QComboBoxEx.cpp" />
     <ClCompile Include="src\input\QLineEditEx.cpp" />
     <ClCompile Include="src\interface\AsyncDataSetter.cpp" />
     <ClCompile Include="src\interface\GifSetterInterface.cpp" />
     <ClCompile Include="src\interface\ImageSetterInterface.cpp" />
     <ClCompile Include="src\interface\TextSetterInterface.cpp" />
+    <ClCompile Include="src\utils\RegExpWidget.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\eventex\MouseEventEx.h" />
@@ -34,6 +36,8 @@
     <ClInclude Include="include\exglobal.h" />
     <ClInclude Include="include\interface\GifSetterInterface.h" />
     <ClInclude Include="include\interface\ImageSetterInterface.h" />
+    <ClInclude Include="include\utils\RegExpWidget.h" />
+    <QtMoc Include="include\QComboBoxEx.h" />
     <QtMoc Include="include\QLineEditEx.h" />
     <QtMoc Include="include\QPushButtonEx.h" />
     <QtMoc Include="include\interface\AsyncDataSetter.h" />
@@ -87,7 +91,7 @@
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="QtSettings">
-    <QtInstall>msvc2017_64</QtInstall>
+    <QtInstall>msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>

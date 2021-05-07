@@ -47,6 +47,12 @@
     <Filter Include="Source Files\input">
       <UniqueIdentifier>{03da0b21-5e64-4b43-a7cd-ad3f123df85e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{58a6b02d-6d9e-45d1-8a7f-c0b263553903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{14a44552-ea75-4648-a15d-8ee80a27503c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\display\QLabelEx.cpp">
@@ -73,6 +79,12 @@
     <ClCompile Include="src\interface\GifSetterInterface.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="src\input\QComboBoxEx.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\RegExpWidget.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -96,6 +108,9 @@
     <ClInclude Include="include\interface\GifSetterInterface.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
+    <ClInclude Include="include\utils\RegExpWidget.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\interface\AsyncDataSetter.h">
@@ -108,6 +123,9 @@
       <Filter>Header Files\buttons</Filter>
     </QtMoc>
     <QtMoc Include="include\QLineEditEx.h">
+      <Filter>Header Files\input</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QComboBoxEx.h">
       <Filter>Header Files\input</Filter>
     </QtMoc>
   </ItemGroup>
