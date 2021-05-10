@@ -54,7 +54,7 @@
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="QtSettings">
-    <QtInstall>msvc2017_64</QtInstall>
+    <QtInstall>msvc2019_64</QtInstall>
     <QtModules>core;xml;gui;widgets;designer</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
@@ -64,7 +64,7 @@
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="QtSettings">
-    <QtInstall>msvc2017_64</QtInstall>
+    <QtInstall>msvc2019_64</QtInstall>
     <QtModules>core;xml;gui;widgets;designer</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -197,6 +197,7 @@
     <QtMoc Include="QtWidgetExPlugin.h" />
     <ClCompile Include="buttons\QPushButtonExPlugin.cpp" />
     <ClCompile Include="display\QLabelExPlugin.cpp" />
+    <ClCompile Include="input\QComboBoxExPlugin.cpp" />
     <ClCompile Include="input\QLineEditExPlugin.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).moc</QtMocFileName>
@@ -220,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="input\QLineEditExPlugin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="input\QComboBoxExPlugin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

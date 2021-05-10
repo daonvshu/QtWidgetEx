@@ -52,6 +52,9 @@
     <QtMoc Include="input\QLineEditExPlugin.h">
       <Filter>Header Files\input</Filter>
     </QtMoc>
+    <QtMoc Include="input\QComboBoxExPlugin.h">
+      <Filter>Header Files\input</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="display\QLabelExPlugin.cpp">
@@ -61,6 +64,9 @@
       <Filter>Source Files\buttons</Filter>
     </ClCompile>
     <ClCompile Include="input\QLineEditExPlugin.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="input\QComboBoxExPlugin.cpp">
       <Filter>Source Files\input</Filter>
     </ClCompile>
   </ItemGroup>

@@ -160,6 +160,205 @@ background:lightblue;
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>QComboBoxEx</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QComboBoxEx" name="comboboxex">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_add_items">
+              <property name="text">
+               <string>add items</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_modify">
+              <property name="text">
+               <string>modify current item</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_insert">
+              <property name="text">
+               <string>insert from current</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_remove">
+              <property name="text">
+               <string>remove current</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>current index:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="comboex_current_index1">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>current text:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="comboex_current_text1">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_item_completer">
+              <property name="text">
+               <string>item completer</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_words_completer">
+              <property name="text">
+               <string>words completer</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QPushButtonEx" name="comboex_get_current_value">
+              <property name="text">
+               <string>get current value</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>current index:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="comboex_current_index2">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>current text:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="comboex_current_text2">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="comboex_get_current_size">
+              <property name="text">
+               <string>get size</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>current size:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="comboex_current_size">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -188,6 +387,11 @@ background:lightblue;
    <class>QPushButtonEx</class>
    <extends>QPushButton</extends>
    <header>QPushButtonEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QComboBoxEx</class>
+   <extends>QComboBox</extends>
+   <header>QComboBoxEx.h</header>
   </customwidget>
   <customwidget>
    <class>QLineEditEx</class>

@@ -24,7 +24,7 @@ void ListElementSetter::insert(int index, const QString& text) {
 }
 
 void ListElementSetter::remove(int index) {
-    model->removeRows(index, 0);
+    model->removeRow(index);
 }
 
 int ListElementSetter::size() const {

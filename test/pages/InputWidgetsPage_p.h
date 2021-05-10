@@ -15,6 +15,14 @@ struct InputWidgetsPagePrivate : public ImplPrivate {
 
 	void setLineEditExReadOnlyTest();
 
+	void addItemToComboBoxExTest();
+
+	void modifyComboBoxExCurrentItemTest();
+
+	void insertToComboBoxExTest();
+
+	void removeCurrentFromComboBoxExTest();
+
 	InputWidgetsPageView* view;
 
 	~InputWidgetsPagePrivate();

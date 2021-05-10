@@ -4,6 +4,7 @@
 
 #include "buttons/QPushButtonExPlugin.h"
 
+#include "input/QComboBoxExPlugin.h"
 #include "input/QLineEditExPlugin.h"
 
 QtWidgetExPlugin::QtWidgetExPlugin(QObject* parent)
@@ -13,6 +14,7 @@ QtWidgetExPlugin::QtWidgetExPlugin(QObject* parent)
 
     widgets << new QPushButtonExPlugin(this);
 
+    widgets << new QComboBoxExPlugin(this);
     widgets << new QLineEditExPlugin(this);
 }
 
