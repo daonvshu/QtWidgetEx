@@ -27,6 +27,7 @@
     <ClCompile Include="src\interface\AsyncDataSetter.cpp" />
     <ClCompile Include="src\interface\GifSetterInterface.cpp" />
     <ClCompile Include="src\interface\ImageSetterInterface.cpp" />
+    <ClCompile Include="src\interface\ListElementSetter.cpp" />
     <ClCompile Include="src\interface\TextSetterInterface.cpp" />
     <ClCompile Include="src\utils\RegExpWidget.cpp" />
   </ItemGroup>
@@ -36,6 +37,7 @@
     <ClInclude Include="include\exglobal.h" />
     <ClInclude Include="include\interface\GifSetterInterface.h" />
     <ClInclude Include="include\interface\ImageSetterInterface.h" />
+    <ClInclude Include="include\interface\ListElementSetter.h" />
     <ClInclude Include="include\utils\RegExpWidget.h" />
     <QtMoc Include="include\QComboBoxEx.h" />
     <QtMoc Include="include\QLineEditEx.h" />

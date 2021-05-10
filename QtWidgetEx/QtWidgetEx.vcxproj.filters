@@ -85,6 +85,9 @@
     <ClCompile Include="src\utils\RegExpWidget.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\interface\ListElementSetter.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -110,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="include\utils\RegExpWidget.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\interface\ListElementSetter.h">
+      <Filter>Header Files\interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
