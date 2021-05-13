@@ -16,23 +16,19 @@ ImageSetterInterface::~ImageSetterInterface() {
 }
 
 void ImageSetterInterface::operator=(const QPixmap& pixmap) {
-    setValue(pixmap);
+    setValue(scaledIfTargetSizeIsSet(pixmap));
 }
 
 void ImageSetterInterface::operator=(const QImage& image) {
-    setValue(image);
+    setValue(scaledIfTargetSizeIsSet(image));
 }
 
 void ImageSetterInterface::operator=(const QBitmap& bitmap) {
-    setValue(bitmap);
+    setValue(scaledIfTargetSizeIsSet(bitmap));
 }
 
 void ImageSetterInterface::operator=(const QString& imagePath) {
-    if (targetIsSet) {
-        setValue(QPixmap(imagePath).scaled(targetSize, targetAspectRatio, targetTransform));
-    } else {
-        setValue(QPixmap(imagePath));
-    }
+    setValue(scaledIfTargetSizeIsSet(imagePath));
 }
 
 ImageSetterInterface& ImageSetterInterface::target(const QSize& size, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) {

@@ -97,15 +97,15 @@ void DisplayWidgetsPagePrivate::setLabelExTextByConverter(const TextTestData& te
 }
 
 void DisplayWidgetsPagePrivate::setLabelExImg(const QPixmap& pixmap) {
-	view->set_image_test_label->image = pixmap;
+	view->set_image_test_label->image.target(350, 400, Qt::IgnoreAspectRatio) = pixmap;
 }
 
 void DisplayWidgetsPagePrivate::setLabelExImg(const QImage& image) {
-	view->set_image_test_label->image = image;
+	view->set_image_test_label->image.targetW(300) = image;
 }
 
 void DisplayWidgetsPagePrivate::setLabelExImg(const QBitmap& bitmap) {
-	view->set_image_test_label->image = bitmap;
+	view->set_image_test_label->image.target(250, 250) = bitmap;
 }
 
 void DisplayWidgetsPagePrivate::setLabelExImg(const QString& imagePath) {

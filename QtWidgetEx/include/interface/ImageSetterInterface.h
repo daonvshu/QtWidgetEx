@@ -39,12 +39,33 @@ public:
         Qt::TransformationMode transformMode = Qt::SmoothTransformation
     );
 
-    ImageSetterInterface& target(
+    inline ImageSetterInterface& target(
         int w, int h,
         Qt::AspectRatioMode aspectRatioMode = Qt::KeepAspectRatio,
         Qt::TransformationMode transformMode = Qt::SmoothTransformation
     ) {
         return target(QSize(w, h), aspectRatioMode, transformMode);
+    }
+
+    inline ImageSetterInterface& targetW(
+        int w,
+        Qt::AspectRatioMode aspectRatioMode = Qt::KeepAspectRatio,
+        Qt::TransformationMode transformMode = Qt::SmoothTransformation
+    ) {
+        return target(w, -1, aspectRatioMode, transformMode);
+    }
+
+    inline ImageSetterInterface& targetH(
+        int h,
+        Qt::AspectRatioMode aspectRatioMode = Qt::KeepAspectRatio,
+        Qt::TransformationMode transformMode = Qt::SmoothTransformation
+    ) {
+        return target(-1, h, aspectRatioMode, transformMode);
+    }
+
+    inline ImageSetterInterface& noScale() {
+        targetIsSet = false;
+        return *this;
     }
 
     inline ImageSetterInterface& network(
@@ -69,19 +90,30 @@ private:
 
     bool networkCache;
     QString lastLoadNetworkImg;
+
+private:
+    template<typename T>
+    inline T scaledIfTargetSizeIsSet(const T& source) {
+        if (!source.isNull() && targetIsSet) {
+            if (targetSize.width() == -1) {
+                return source.scaledToHeight(targetSize.height(), targetTransform);
+            } else if (targetSize.height() == -1) {
+                return source.scaledToWidth(targetSize.width(), targetTransform);
+            }
+            return source.scaled(targetSize, targetAspectRatio, targetTransform);
+        }
+        return source;
+    }
+
+    inline QPixmap scaledIfTargetSizeIsSet(const QString& source) {
+        return scaledIfTargetSizeIsSet(QPixmap(source));
+    }
 };
 
 //use inline to load network module optional
 
 inline ImageSetterInterface& ImageSetterInterface::network(const QString& url, const QString& placeholder, const QString& err) {
-    if (targetIsSet) {
-        return network2(
-            url,
-            placeholder.isNull() ? placeholder : QPixmap(placeholder).scaled(targetSize, targetAspectRatio, targetTransform),
-            err.isNull() ? err : QPixmap(err).scaled(targetSize, targetAspectRatio, targetTransform)
-        );
-    }
-    return network2(url, QPixmap(placeholder), QPixmap(err));
+    return network2(url, scaledIfTargetSizeIsSet(placeholder), scaledIfTargetSizeIsSet(err));
 }
 
 inline ImageSetterInterface& ImageSetterInterface::network2(const QString& url, const QPixmap& placeholder, const QPixmap& err) {
@@ -103,12 +135,7 @@ inline ImageSetterInterface& ImageSetterInterface::network2(const QString& url, 
         });
 
         connect(getter, &NetworkImageGetter::getImage, this, [=](QPixmap pixmap) {
-            QPixmap target;
-            if (targetIsSet) {
-                target = QPixmap(pixmap).scaled(targetSize, targetAspectRatio, targetTransform);
-            } else {
-                target = pixmap;
-            }
+            auto target = scaledIfTargetSizeIsSet(pixmap);
             QPixmapCache::insert(url, target);
             setValue(target);
         });
