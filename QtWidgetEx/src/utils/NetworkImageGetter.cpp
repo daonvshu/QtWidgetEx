@@ -48,7 +48,6 @@ void NetworkImageGetter::run() {
     }
 
     QEventLoop loop;
-    QPixmap pixmap;
 
     connect(manager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
 
@@ -73,8 +72,8 @@ void NetworkImageGetter::run() {
     } else {
         auto err = reply->error();
         if (statusCode.isValid() || err == QNetworkReply::NoError) {
-            auto data = reply->readAll();
-            pixmap.loadFromData(data);
+            QPixmap pixmap;
+            pixmap.loadFromData(reply->readAll());
             emit getImage(pixmap);
         } else {
             qDebug() << err;

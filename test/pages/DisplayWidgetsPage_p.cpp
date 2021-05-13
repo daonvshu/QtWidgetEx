@@ -109,7 +109,7 @@ void DisplayWidgetsPagePrivate::setLabelExImg(const QBitmap& bitmap) {
 }
 
 void DisplayWidgetsPagePrivate::setLabelExImg(const QString& imagePath) {
-	view->set_image_test_label->image = imagePath;
+	view->set_image_test_label->image.target(200, 200) = imagePath;
 }
 
 void DisplayWidgetsPagePrivate::setLabelExImg(const QString& urlImg, const QSize& tagSize) {

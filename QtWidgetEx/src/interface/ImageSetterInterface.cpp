@@ -28,7 +28,11 @@ void ImageSetterInterface::operator=(const QBitmap& bitmap) {
 }
 
 void ImageSetterInterface::operator=(const QString& imagePath) {
-    setValue(QPixmap(imagePath));
+    if (targetIsSet) {
+        setValue(QPixmap(imagePath).scaled(targetSize, targetAspectRatio, targetTransform));
+    } else {
+        setValue(QPixmap(imagePath));
+    }
 }
 
 ImageSetterInterface& ImageSetterInterface::target(const QSize& size, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) {

@@ -39,6 +39,14 @@ public:
         Qt::TransformationMode transformMode = Qt::SmoothTransformation
     );
 
+    ImageSetterInterface& target(
+        int w, int h,
+        Qt::AspectRatioMode aspectRatioMode = Qt::KeepAspectRatio,
+        Qt::TransformationMode transformMode = Qt::SmoothTransformation
+    ) {
+        return target(QSize(w, h), aspectRatioMode, transformMode);
+    }
+
     inline ImageSetterInterface& network(
         const QString& url,
         const QString& placeholder = QString(),
@@ -60,7 +68,6 @@ private:
     Qt::TransformationMode targetTransform;
 
     bool networkCache;
-    QPixmap networkErrHolder;
     QString lastLoadNetworkImg;
 };
 
@@ -91,7 +98,7 @@ inline ImageSetterInterface& ImageSetterInterface::network2(const QString& url, 
         setValue(placeholder);
 
         auto getter = new NetworkImageGetter(url);
-        connect(getter, &NetworkImageGetter::hasErr, [=](int) {
+        connect(getter, &NetworkImageGetter::hasErr, this, [=](int) {
             setValue(err);
         });
 
