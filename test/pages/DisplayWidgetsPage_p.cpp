@@ -21,7 +21,7 @@ struct DisplayWidgetsPageView : public BaseView<Ui::DisplayWidgets> {
 	void initUi(QWidget* parent) override {
 		setupUi(parent);
 
-		labelex_img_set_type->addItems(QStringList() << "QPixmap" << "QImage" << "QBitmap" << "base64 data");
+		labelex_img_set_type->addItems(QStringList() << "QPixmap" << "QImage" << "QBitmap" << "image path" << "from network");
 		labelex_img_set_type->setCurrentIndex(0);
 
 		labelex_img_set_clear->pressEvt += [&] {
@@ -108,9 +108,14 @@ void DisplayWidgetsPagePrivate::setLabelExImg(const QBitmap& bitmap) {
 	view->set_image_test_label->image = bitmap;
 }
 
-void DisplayWidgetsPagePrivate::setLabelExImg(const QString& base64) {
-	view->set_image_test_label->image = base64;
+void DisplayWidgetsPagePrivate::setLabelExImg(const QString& imagePath) {
+	view->set_image_test_label->image = imagePath;
 }
+
+void DisplayWidgetsPagePrivate::setLabelExImg(const QString& urlImg, const QSize& tagSize) {
+	view->set_image_test_label->image.target(tagSize).network(urlImg);
+}
+
 
 void DisplayWidgetsPagePrivate::setLabelExGif(const QString& path) {
 	view->labelex_gif_speed->setCurrentIndex(0);

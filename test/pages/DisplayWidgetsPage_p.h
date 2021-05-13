@@ -26,7 +26,8 @@ struct DisplayWidgetsPagePrivate : public ImplPrivate {
 	void setLabelExImg(const QPixmap& pixmap);
 	void setLabelExImg(const QImage& image);
 	void setLabelExImg(const QBitmap& bitmap);
-	void setLabelExImg(const QString& base64);
+	void setLabelExImg(const QString& imagePath);
+	void setLabelExImg(const QString& urlImg, const QSize& tagSize);
 
 	void setLabelExGif(const QString& path);
 	//view model

@@ -71,13 +71,10 @@ void DisplayWidgetsPagePrivate::setLabelExImgTest() {
 			setLabelExImg(QBitmap::fromImage(image));
 			break;
 		case 3:
-		    {
-				QByteArray data;
-				QBuffer buffer(&data);
-				buffer.open(QIODevice::WriteOnly);
-				image.save(&buffer, "JPEG");
-				setLabelExImg(data.toBase64());
-		    }
+			setLabelExImg(":/WidgetExTest/res/1.png");
+			break;
+		case 4:
+			setLabelExImg("https://avatars.githubusercontent.com/u/30491545?v=4", QSize(200, 200));
 			break;
         }
 	};

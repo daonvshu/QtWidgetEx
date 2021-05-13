@@ -4,7 +4,15 @@ EX_BEGIN_NAMESPACE
 ImageSetterInterface::ImageSetterInterface(ImageSetterCallback* imageSetterCallback, QObject* parent)
     : AsyncDataSetter(parent)
     , imageSetterCallback(imageSetterCallback)
+    , targetIsSet(false)
+    , networkCache(true)
 {
+}
+
+ImageSetterInterface::~ImageSetterInterface() {
+    if (!lastLoadNetworkImg.isEmpty()) {
+        QPixmapCache::remove(lastLoadNetworkImg);
+    }
 }
 
 void ImageSetterInterface::operator=(const QPixmap& pixmap) {
@@ -19,8 +27,16 @@ void ImageSetterInterface::operator=(const QBitmap& bitmap) {
     setValue(bitmap);
 }
 
-void ImageSetterInterface::operator=(const QString& base64Str) {
-    setValue(QImage::fromData(QByteArray::fromBase64(base64Str.toLatin1())));
+void ImageSetterInterface::operator=(const QString& imagePath) {
+    setValue(QPixmap(imagePath));
+}
+
+ImageSetterInterface& ImageSetterInterface::target(const QSize& size, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) {
+    targetIsSet = true;
+    targetSize = size;
+    targetAspectRatio = aspectRatioMode;
+    targetTransform = transformMode;
+    return *this;
 }
 
 void ImageSetterInterface::setDataInMainThread(const QVariant& value) {

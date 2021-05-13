@@ -88,6 +88,9 @@
     <ClCompile Include="src\interface\ListElementSetter.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="src\utils\NetworkImageGetter.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -133,6 +136,9 @@
     </QtMoc>
     <QtMoc Include="include\QComboBoxEx.h">
       <Filter>Header Files\input</Filter>
+    </QtMoc>
+    <QtMoc Include="include\utils\NetworkImageGetter.h">
+      <Filter>Header Files\utils</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
