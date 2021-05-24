@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\buttons\QCheckBoxEx.cpp" />
     <ClCompile Include="src\buttons\QPushButtonEx.cpp" />
+    <ClCompile Include="src\buttons\QRadioButtonEx.cpp" />
     <ClCompile Include="src\display\QLabelEx.cpp" />
     <ClCompile Include="src\eventex\MouseEventEx.cpp" />
     <ClCompile Include="src\input\QComboBoxEx.cpp" />
@@ -46,6 +47,7 @@
     <QtMoc Include="include\utils\NetworkImageGetter.h" />
     <QtMoc Include="include\QCheckBoxEx.h" />
     <ClInclude Include="include\QAbstractButtonEx.h" />
+    <QtMoc Include="include\QRadioButtonEx.h" />
     <ClInclude Include="include\utils\ButtonGroupUtil.h" />
     <ClInclude Include="include\utils\RegExpWidget.h" />
     <QtMoc Include="include\QComboBoxEx.h" />

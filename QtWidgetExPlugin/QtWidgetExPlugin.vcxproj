@@ -197,6 +197,7 @@
     <QtMoc Include="QtWidgetExPlugin.h" />
     <ClCompile Include="buttons\QCheckBoxExPlugin.cpp" />
     <ClCompile Include="buttons\QPushButtonExPlugin.cpp" />
+    <ClCompile Include="buttons\QRadioButtonExPlugin.cpp" />
     <ClCompile Include="display\QLabelExPlugin.cpp" />
     <ClCompile Include="input\QComboBoxExPlugin.cpp" />
     <ClCompile Include="input\QLineEditExPlugin.cpp">
@@ -228,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="buttons\QCheckBoxExPlugin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="buttons\QRadioButtonExPlugin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

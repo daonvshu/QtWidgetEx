@@ -100,6 +100,9 @@
     <ClCompile Include="src\interface\IconSetterInterface.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+    <ClCompile Include="src\buttons\QRadioButtonEx.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -159,6 +162,9 @@
       <Filter>Header Files\utils</Filter>
     </QtMoc>
     <QtMoc Include="include\QCheckBoxEx.h">
+      <Filter>Header Files\buttons</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QRadioButtonEx.h">
       <Filter>Header Files\buttons</Filter>
     </QtMoc>
   </ItemGroup>

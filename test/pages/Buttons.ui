@@ -309,6 +309,83 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>RadioButtonEx</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0,0,0,0,0,0,1">
+            <item>
+             <widget class="QCheckBoxEx" name="radiobuttonex_exclusive">
+              <property name="text">
+               <string>exclusive</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>radiobutton group:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButtonEx" name="radioex1">
+              <property name="text">
+               <string>radio1</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButtonEx" name="radioex2">
+              <property name="text">
+               <string>radio2</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButtonEx" name="radioex3">
+              <property name="text">
+               <string>radio3</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -337,6 +414,11 @@
    <class>QCheckBoxEx</class>
    <extends>QCheckBox</extends>
    <header>QCheckBoxEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QRadioButtonEx</class>
+   <extends>QRadioButton</extends>
+   <header>QRadioButtonEx.h</header>
   </customwidget>
   <customwidget>
    <class>QComboBoxEx</class>

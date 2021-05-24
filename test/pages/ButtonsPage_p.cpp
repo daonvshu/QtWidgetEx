@@ -88,6 +88,15 @@ void ButtonsPagePrivate::bindView(QWidget* parent) {
 		QDebug(&stateStr) << state;
 		QMessageBox::warning(0, "title", "checkbox state:" + stateStr);
 	};
+
+	view->radioex1->group.create(view->radioex2, view->radioex3);
+	view->radiobuttonex_exclusive->stateEvt += [&](int state) {
+		if (state == Qt::Checked) {
+			view->radioex1->group.exclusive = true;
+		} else if (state == Qt::Unchecked) {
+			view->radioex1->group.exclusive = false;
+		}
+	};
 }
 
 ButtonsPagePrivate::~ButtonsPagePrivate() {
