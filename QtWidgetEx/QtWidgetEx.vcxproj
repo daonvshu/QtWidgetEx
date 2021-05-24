@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\buttons\QCheckBoxEx.cpp" />
     <ClCompile Include="src\buttons\QPushButtonEx.cpp" />
     <ClCompile Include="src\display\QLabelEx.cpp" />
     <ClCompile Include="src\eventex\MouseEventEx.cpp" />
@@ -26,9 +27,11 @@
     <ClCompile Include="src\input\QLineEditEx.cpp" />
     <ClCompile Include="src\interface\AsyncDataSetter.cpp" />
     <ClCompile Include="src\interface\GifSetterInterface.cpp" />
+    <ClCompile Include="src\interface\IconSetterInterface.cpp" />
     <ClCompile Include="src\interface\ImageSetterInterface.cpp" />
     <ClCompile Include="src\interface\ListElementSetter.cpp" />
     <ClCompile Include="src\interface\TextSetterInterface.cpp" />
+    <ClCompile Include="src\utils\ButtonGroupUtil.cpp" />
     <ClCompile Include="src\utils\NetworkImageGetter.cpp" />
     <ClCompile Include="src\utils\RegExpWidget.cpp" />
   </ItemGroup>
@@ -37,9 +40,13 @@
     <ClInclude Include="include\eventex\SimpleEventEx.h" />
     <ClInclude Include="include\exglobal.h" />
     <ClInclude Include="include\interface\GifSetterInterface.h" />
+    <ClInclude Include="include\interface\IconSetterInterface.h" />
     <ClInclude Include="include\interface\ImageSetterInterface.h" />
     <ClInclude Include="include\interface\ListElementSetter.h" />
     <QtMoc Include="include\utils\NetworkImageGetter.h" />
+    <QtMoc Include="include\QCheckBoxEx.h" />
+    <ClInclude Include="include\QAbstractButtonEx.h" />
+    <ClInclude Include="include\utils\ButtonGroupUtil.h" />
     <ClInclude Include="include\utils\RegExpWidget.h" />
     <QtMoc Include="include\QComboBoxEx.h" />
     <QtMoc Include="include\QLineEditEx.h" />

@@ -2,22 +2,14 @@
 
 #include <qpushbutton.h>
 
-#include "interface/TextSetterInterface.h"
+#include "QAbstractButtonEx.h"
 
-#include "eventex/SimpleEventEx.h"
-
-class QPushButtonEx : public QPushButton {
+class QPushButtonEx : public QAbstractButtonEx<QPushButton> {
     Q_OBJECT
 
 public:
-    explicit QPushButtonEx(QWidget* parent = nullptr);
+    using QAbstractButtonEx::QAbstractButtonEx;
+
     explicit QPushButtonEx(const QString& text, QWidget* parent = nullptr);
     QPushButtonEx(const QIcon& icon, const QString& text, QWidget* parent = nullptr);
-
-    _widget_ex::SimpleEventEx<QPushButtonEx, bool> clickEvt;
-    _widget_ex::SimpleEventEx<QPushButtonEx> pressEvt;
-    _widget_ex::SimpleEventEx<QPushButtonEx> releaseEvt;
-    _widget_ex::SimpleEventEx<QPushButtonEx, bool> toggleEvt;
-
-    _widget_ex::TextSetterInterface text;
 };

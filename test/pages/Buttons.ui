@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>760</width>
+    <width>838</width>
     <height>449</height>
    </rect>
   </property>
@@ -24,15 +24,26 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>740</width>
+        <width>818</width>
         <height>429</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QCheckBoxEx" name="set_in_work_thread">
+           <property name="text">
+            <string>set in work thread</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>QPushButtonEx</string>
+          <string>QPushButtonEx/QAbstractButtonEx</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
@@ -81,6 +92,219 @@
             </item>
            </layout>
           </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_change_text">
+              <property name="text">
+               <string>change text</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_change_icon">
+              <property name="text">
+               <string>change icon</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBoxEx" name="buttonex_icon_settype">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>0</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>button group test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_g1">
+              <property name="text">
+               <string>button1</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_g2">
+              <property name="text">
+               <string>button2</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="buttonex_g3">
+              <property name="text">
+               <string>button3</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBoxEx" name="buttonex_exclusive">
+              <property name="text">
+               <string>exclusive</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>CheckBoxEx</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0,0,0,0,0,1">
+            <item>
+             <widget class="QCheckBoxEx" name="checkboxex_exclusive">
+              <property name="text">
+               <string>exclusive</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>checkbox group:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBoxEx" name="checkboxex1">
+              <property name="text">
+               <string>check1</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBoxEx" name="checkboxex2">
+              <property name="text">
+               <string>check2</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBoxEx" name="checkboxex3">
+              <property name="text">
+               <string>check3</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QCheckBoxEx" name="checkboxex_target">
+              <property name="text">
+               <string>CheckBoxEx</string>
+              </property>
+              <property name="tristate">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="checkboxex_change_text">
+              <property name="text">
+               <string>change text</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="checkboxex_change_icon">
+              <property name="text">
+               <string>change icon</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="checkboxex_get_state">
+              <property name="text">
+               <string>get state</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
          </layout>
         </widget>
        </item>
@@ -108,6 +332,16 @@
    <class>QPushButtonEx</class>
    <extends>QPushButton</extends>
    <header>QPushButtonEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QCheckBoxEx</class>
+   <extends>QCheckBox</extends>
+   <header>QCheckBoxEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QComboBoxEx</class>
+   <extends>QComboBox</extends>
+   <header>QComboBoxEx.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

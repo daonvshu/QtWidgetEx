@@ -17,7 +17,7 @@ public:
     virtual void setBitmapSync(const QBitmap&) = 0;
 };
 
-class ImageSetterInterface: AsyncDataSetter {
+class ImageSetterInterface: protected AsyncDataSetter {
 public:
     explicit ImageSetterInterface(ImageSetterCallback* imageSetterCallback, QObject* parent = nullptr);
 
@@ -27,11 +27,11 @@ private:
     void setDataInMainThread(const QVariant& value) override;
 
 public:
-    void operator=(const QPixmap& pixmap);
-    void operator=(const QImage& image);
-    void operator=(const QBitmap& bitmap);
+    virtual void operator=(const QPixmap& pixmap);
+    virtual void operator=(const QImage& image);
+    virtual void operator=(const QBitmap& bitmap);
 
-    void operator=(const QString& imagePath);
+    virtual void operator=(const QString& imagePath);
 
     ImageSetterInterface& target(
         const QSize& size,
@@ -80,7 +80,7 @@ public:
         const QPixmap& err = QPixmap()
     );
 
-private:
+protected:
     ImageSetterCallback* imageSetterCallback;
 
     bool targetIsSet;
@@ -91,7 +91,7 @@ private:
     bool networkCache;
     QString lastLoadNetworkImg;
 
-private:
+protected:
     template<typename T>
     inline T scaledIfTargetSizeIsSet(const T& source) {
         if (!source.isNull() && targetIsSet) {

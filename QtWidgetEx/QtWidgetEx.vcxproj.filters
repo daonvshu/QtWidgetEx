@@ -91,6 +91,15 @@
     <ClCompile Include="src\utils\NetworkImageGetter.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
+    <ClCompile Include="src\buttons\QCheckBoxEx.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\ButtonGroupUtil.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\interface\IconSetterInterface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -120,6 +129,15 @@
     <ClInclude Include="include\interface\ListElementSetter.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
+    <ClInclude Include="include\utils\ButtonGroupUtil.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="include\interface\IconSetterInterface.h">
+      <Filter>Header Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QAbstractButtonEx.h">
+      <Filter>Header Files\buttons</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="include\interface\AsyncDataSetter.h">
@@ -139,6 +157,9 @@
     </QtMoc>
     <QtMoc Include="include\utils\NetworkImageGetter.h">
       <Filter>Header Files\utils</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QCheckBoxEx.h">
+      <Filter>Header Files\buttons</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
