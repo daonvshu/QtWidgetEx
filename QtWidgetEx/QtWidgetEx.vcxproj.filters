@@ -103,6 +103,9 @@
     <ClCompile Include="src\buttons\QRadioButtonEx.cpp">
       <Filter>Source Files\buttons</Filter>
     </ClCompile>
+    <ClCompile Include="src\buttons\QToolButtonEx.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\interface\TextSetterInterface.h">
@@ -165,6 +168,9 @@
       <Filter>Header Files\buttons</Filter>
     </QtMoc>
     <QtMoc Include="include\QRadioButtonEx.h">
+      <Filter>Header Files\buttons</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QToolButtonEx.h">
       <Filter>Header Files\buttons</Filter>
     </QtMoc>
   </ItemGroup>

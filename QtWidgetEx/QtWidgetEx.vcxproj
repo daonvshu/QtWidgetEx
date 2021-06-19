@@ -22,6 +22,16 @@
     <ClCompile Include="src\buttons\QCheckBoxEx.cpp" />
     <ClCompile Include="src\buttons\QPushButtonEx.cpp" />
     <ClCompile Include="src\buttons\QRadioButtonEx.cpp" />
+    <ClCompile Include="src\buttons\QToolButtonEx.cpp">
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename).moc</QtMocFileName>
+      <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
+      <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
+    </ClCompile>
     <ClCompile Include="src\display\QLabelEx.cpp" />
     <ClCompile Include="src\eventex\MouseEventEx.cpp" />
     <ClCompile Include="src\input\QComboBoxEx.cpp" />
@@ -48,6 +58,7 @@
     <QtMoc Include="include\QCheckBoxEx.h" />
     <ClInclude Include="include\QAbstractButtonEx.h" />
     <QtMoc Include="include\QRadioButtonEx.h" />
+    <QtMoc Include="include\QToolButtonEx.h" />
     <ClInclude Include="include\utils\ButtonGroupUtil.h" />
     <ClInclude Include="include\utils\RegExpWidget.h" />
     <QtMoc Include="include\QComboBoxEx.h" />

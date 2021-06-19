@@ -23,8 +23,10 @@ public:
     _widget_ex::SimpleAsyncDataSetter<int> id;
     _widget_ex::SimpleAsyncDataSetter<bool> exclusive;
 
-    void operator+=(const std::function<void()>& clickCallback);
-    void operator+=(const std::function<void(int)>& idClickCallback);
+    void operator+=(const std::function<void(bool)>& clickCallback);
+    void operator+=(const std::function<void(int, bool)>& idClickCallback);
+
+    QButtonGroup* operator()();
 
     template<typename T, typename... Args>
     void create(T* button, Args*... buttons) {

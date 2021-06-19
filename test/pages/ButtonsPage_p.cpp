@@ -6,6 +6,9 @@
 #include <qmessagebox.h>
 #include <qdebug.h>
 
+#include <qmenu.h>
+#include <qaction.h>
+
 void showBtnClickInFunction(bool) {
 	QMessageBox::warning(0, "title", "button click in function!");
 }
@@ -61,12 +64,16 @@ void ButtonsPagePrivate::bindView(QWidget* parent) {
 	view->buttonex_g2->group.id = 3;
 	view->buttonex_g3->group.id = 4;
 
-	view->buttonex_g1->group += [&] {
-		QMessageBox::warning(0, "title", "button 1 clicked!");
+	view->buttonex_g1->group += [&] (bool checked) {
+		if (checked) {
+			QMessageBox::warning(0, "title", "button 1 clicked!");
+		}
 	};
 
-	view->buttonex_g2->group += [&](int id) {
-		QMessageBox::warning(0, "title", "button 2 clicked! id = " + QString::number(id));
+	view->buttonex_g2->group += [&](int id, bool checked) {
+		if (checked) {
+			QMessageBox::warning(0, "title", "button 2 clicked! id = " + QString::number(id));
+		}
 	};
 
 
@@ -96,6 +103,32 @@ void ButtonsPagePrivate::bindView(QWidget* parent) {
 		} else if (state == Qt::Unchecked) {
 			view->radioex1->group.exclusive = false;
 		}
+	};
+
+	view->toolbtnex1->group.create(view->toolbtnex2, view->toolbtnex3);
+	view->toolbuttonex_exclusive->stateEvt += [&](int state) {
+		if (state == Qt::Checked) {
+			view->toolbtnex1->group.exclusive = true;
+		} else if (state == Qt::Unchecked) {
+			view->toolbtnex1->group.exclusive = false;
+		}
+	};
+
+	view->toolbtnex1->group += [&](bool checked) {
+		view->toolbtnex1->icon = checked ? ":/WidgetExTest/res/1.png" : "";
+	};
+
+	view->toolbtnex2->group += [&](bool checked) {
+		view->toolbtnex2->icon = checked ? ":/WidgetExTest/res/1.png" : "";
+	};
+
+	auto menu = new QMenu(view->toolbtnex4);
+	menu->addAction("action1");
+	menu->addAction("action2");
+
+	view->toolbtnex4->setMenu(menu);
+	view->toolbtnex4->triggerEvt += [](QAction* action) {
+		QMessageBox::warning(0, "title", "trigger action -> " + action->text());
 	};
 }
 

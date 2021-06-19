@@ -46,24 +46,24 @@ ButtonGroupUtil::ButtonGroupUtil(QAbstractButton* button)
 {
 }
 
-void ButtonGroupUtil::operator+=(const std::function<void()>& clickCallback) {
+void ButtonGroupUtil::operator+=(const std::function<void(bool)>& clickCallback) {
     auto group = button->group();
     Q_ASSERT_X(group != nullptr, "click event", "button group not set!");
     QObject::connect(group, qOverload<QAbstractButton*>(&QButtonGroup::buttonClicked), [=](QAbstractButton* btn) {
-        if (btn == this->button) {
-            clickCallback();
-        }
+        clickCallback(btn == this->button);
     });
 }
 
-void ButtonGroupUtil::operator+=(const std::function<void(int)>& idClickCallback) {
+void ButtonGroupUtil::operator+=(const std::function<void(int, bool)>& idClickCallback) {
     auto group = button->group();
     Q_ASSERT_X(group != nullptr, "click event", "button group not set!");
     QObject::connect(group, &QButtonGroup::idClicked, [=](int id) {
-        if (group->id(this->button) == id) {
-            idClickCallback(id);
-        }
+        idClickCallback(id, group->id(this->button) == id);
     });
+}
+
+QButtonGroup* ButtonGroupUtil::operator()() {
+    return button->group();
 }
 
 void ButtonGroupUtil::create(int size, ...) {

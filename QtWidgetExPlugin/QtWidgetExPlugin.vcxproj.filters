@@ -61,6 +61,9 @@
     <QtMoc Include="buttons\QRadioButtonExPlugin.h">
       <Filter>Header Files\buttons</Filter>
     </QtMoc>
+    <QtMoc Include="buttons\QToolButtonExPlugin.h">
+      <Filter>Header Files\buttons</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="display\QLabelExPlugin.cpp">
@@ -79,6 +82,9 @@
       <Filter>Source Files\buttons</Filter>
     </ClCompile>
     <ClCompile Include="buttons\QRadioButtonExPlugin.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="buttons\QToolButtonExPlugin.cpp">
       <Filter>Source Files\buttons</Filter>
     </ClCompile>
   </ItemGroup>

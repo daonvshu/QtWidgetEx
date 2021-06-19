@@ -16,6 +16,8 @@ void IconSetterInterface::setDataInMainThread(const QVariant& value) {
     if (iconSetterCallback != nullptr) {
         QIcon target;
         auto size = targetSize;
+        bool targetValid = true;
+
         switch (value.type()) {
         case QVariant::Pixmap:
             {
@@ -27,14 +29,20 @@ void IconSetterInterface::setDataInMainThread(const QVariant& value) {
                         size.setHeight(qRound(size.width() * pixmap.height() * 1.0 / pixmap.width()));
                     }
                     target = QIcon(pixmap);
+                } else {
+                    target = QIcon();
                 }
             }
             break;
         case QVariant::Icon:
             target = value.value<QIcon>();
             break;
+        default:
+            targetValid = false;
+            break;
         }
-        if (!target.isNull()) {
+
+        if (targetValid) {
             iconSetterCallback->setIconSync(target, targetIsSet, size);
         }
     }
