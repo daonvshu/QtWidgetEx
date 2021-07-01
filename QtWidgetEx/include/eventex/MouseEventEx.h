@@ -27,12 +27,6 @@ protected:
     bool eventFilter(QObject* watched, QEvent* event) override;
 
 private:
-    enum PressType {
-        LEFT_MOUSE_PRESS = 1,
-        RIGHT_MOUSE_PRESS = 2,
-        DOUBLE_CLICK = 4,
-    };
-
     int pressType;
     bool mousePressed;
 

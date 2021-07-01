@@ -3,6 +3,12 @@
 #include <qevent.h>
 
 EX_BEGIN_NAMESPACE
+enum PressType {
+    LEFT_MOUSE_PRESS = 1,
+    RIGHT_MOUSE_PRESS = 2,
+    DOUBLE_CLICK = 4,
+};
+
 MouseEventEx::MouseEventEx(QWidget* parent)
     : QObject(parent)
     , pressType(LEFT_MOUSE_PRESS)
