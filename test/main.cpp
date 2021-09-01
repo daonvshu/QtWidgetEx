@@ -1,4 +1,4 @@
-#include "WidgetExTest.h"
+#include "widgetextest.h"
 #include <QtWidgets/QApplication>
 
 #include <QSslSocket>

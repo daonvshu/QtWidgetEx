@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\buttons\QCheckBoxEx.cpp" />
-    <ClCompile Include="src\buttons\QPushButtonEx.cpp" />
-    <ClCompile Include="src\buttons\QRadioButtonEx.cpp" />
-    <ClCompile Include="src\buttons\QToolButtonEx.cpp">
+    <ClCompile Include="src\buttons\qcheckboxex.cpp" />
+    <ClCompile Include="src\buttons\qpushbuttonex.cpp" />
+    <ClCompile Include="src\buttons\qradiobuttonex.cpp" />
+    <ClCompile Include="src\buttons\qtoolbuttonex.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).moc</QtMocFileName>
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
@@ -32,42 +32,42 @@
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
-    <ClCompile Include="src\display\QLabelEx.cpp" />
-    <ClCompile Include="src\eventex\MouseEventEx.cpp" />
-    <ClCompile Include="src\input\QComboBoxEx.cpp" />
-    <ClCompile Include="src\input\QLineEditEx.cpp" />
-    <ClCompile Include="src\interface\AsyncDataSetter.cpp" />
-    <ClCompile Include="src\interface\GifSetterInterface.cpp" />
-    <ClCompile Include="src\interface\IconSetterInterface.cpp" />
-    <ClCompile Include="src\interface\ImageSetterInterface.cpp" />
-    <ClCompile Include="src\interface\ListElementSetter.cpp" />
-    <ClCompile Include="src\interface\TextSetterInterface.cpp" />
-    <ClCompile Include="src\utils\ButtonGroupUtil.cpp" />
-    <ClCompile Include="src\utils\NetworkImageGetter.cpp" />
-    <ClCompile Include="src\utils\RegExpWidget.cpp" />
+    <ClCompile Include="src\display\qlabelex.cpp" />
+    <ClCompile Include="src\eventex\mouseeventex.cpp" />
+    <ClCompile Include="src\input\qcomboboxex.cpp" />
+    <ClCompile Include="src\input\qlineeditex.cpp" />
+    <ClCompile Include="src\interface\asyncdatasetter.cpp" />
+    <ClCompile Include="src\interface\gifsetterinterface.cpp" />
+    <ClCompile Include="src\interface\iconsetterinterface.cpp" />
+    <ClCompile Include="src\interface\imagesetterinterface.cpp" />
+    <ClCompile Include="src\interface\listelementsetter.cpp" />
+    <ClCompile Include="src\interface\textsetterinterface.cpp" />
+    <ClCompile Include="src\utils\buttongrouputil.cpp" />
+    <ClCompile Include="src\utils\networkimagegetter.cpp" />
+    <ClCompile Include="src\utils\regexpwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\eventex\MouseEventEx.h" />
-    <ClInclude Include="include\eventex\SimpleEventEx.h" />
+    <ClInclude Include="include\eventex\mouseeventex.h" />
+    <ClInclude Include="include\eventex\simpleeventex.h" />
     <ClInclude Include="include\exglobal.h" />
-    <ClInclude Include="include\interface\GifSetterInterface.h" />
-    <ClInclude Include="include\interface\IconSetterInterface.h" />
-    <ClInclude Include="include\interface\ImageSetterInterface.h" />
-    <ClInclude Include="include\interface\ListElementSetter.h" />
-    <QtMoc Include="include\utils\NetworkImageGetter.h" />
-    <QtMoc Include="include\QCheckBoxEx.h" />
-    <ClInclude Include="include\QAbstractButtonEx.h" />
-    <QtMoc Include="include\QRadioButtonEx.h" />
-    <QtMoc Include="include\QToolButtonEx.h" />
-    <ClInclude Include="include\utils\ButtonGroupUtil.h" />
-    <ClInclude Include="include\utils\RegExpWidget.h" />
-    <QtMoc Include="include\QComboBoxEx.h" />
-    <QtMoc Include="include\QLineEditEx.h" />
-    <QtMoc Include="include\QPushButtonEx.h" />
-    <QtMoc Include="include\interface\AsyncDataSetter.h" />
-    <ClInclude Include="include\interface\SimpleDataSetter.h" />
-    <ClInclude Include="include\interface\TextSetterInterface.h" />
-    <QtMoc Include="include\QLabelEx.h" />
+    <ClInclude Include="include\interface\gifsetterinterface.h" />
+    <ClInclude Include="include\interface\iconsetterinterface.h" />
+    <ClInclude Include="include\interface\imagesetterinterface.h" />
+    <ClInclude Include="include\interface\listelementsetter.h" />
+    <QtMoc Include="include\utils\networkimagegetter.h" />
+    <QtMoc Include="include\qcheckboxex.h" />
+    <ClInclude Include="include\qabstractbuttonex.h" />
+    <QtMoc Include="include\qradiobuttonex.h" />
+    <QtMoc Include="include\qtoolbuttonex.h" />
+    <ClInclude Include="include\utils\buttongrouputil.h" />
+    <ClInclude Include="include\utils\regexpwidget.h" />
+    <QtMoc Include="include\qcomboboxex.h" />
+    <QtMoc Include="include\qlineeditex.h" />
+    <QtMoc Include="include\qpushbuttonex.h" />
+    <QtMoc Include="include\interface\asyncdatasetter.h" />
+    <ClInclude Include="include\interface\simpledatasetter.h" />
+    <ClInclude Include="include\interface\textsetterinterface.h" />
+    <QtMoc Include="include\qlabelex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{D2273DC1-2704-49BE-8210-2A5387B04D65}</ProjectGuid>

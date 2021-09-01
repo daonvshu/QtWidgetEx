@@ -194,14 +194,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtMoc Include="QtWidgetExPlugin.h" />
-    <ClCompile Include="buttons\QCheckBoxExPlugin.cpp" />
-    <ClCompile Include="buttons\QPushButtonExPlugin.cpp" />
-    <ClCompile Include="buttons\QRadioButtonExPlugin.cpp" />
-    <ClCompile Include="buttons\QToolButtonExPlugin.cpp" />
-    <ClCompile Include="display\QLabelExPlugin.cpp" />
-    <ClCompile Include="input\QComboBoxExPlugin.cpp" />
-    <ClCompile Include="input\QLineEditExPlugin.cpp">
+    <QtMoc Include="qtwidgetexplugin.h" />
+    <ClCompile Include="buttons\qcheckboxexplugin.cpp" />
+    <ClCompile Include="buttons\qpushbuttonexplugin.cpp" />
+    <ClCompile Include="buttons\qradiobuttonexplugin.cpp" />
+    <ClCompile Include="buttons\qtoolbuttonexplugin.cpp" />
+    <ClCompile Include="display\qlabelexplugin.cpp" />
+    <ClCompile Include="input\qcomboboxexplugin.cpp" />
+    <ClCompile Include="input\qlineeditexplugin.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename).moc</QtMocFileName>
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
@@ -211,31 +211,31 @@
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
-    <ClCompile Include="QtWidgetExPlugin.cpp" />
+    <ClCompile Include="qtwidgetexplugin.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="display\QLabelExPlugin.h" />
+    <QtMoc Include="display\qlabelexplugin.h" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="formeditor.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="buttons\QPushButtonExPlugin.h" />
+    <QtMoc Include="buttons\qpushbuttonexplugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="input\QLineEditExPlugin.h" />
+    <QtMoc Include="input\qlineeditexplugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="input\QComboBoxExPlugin.h" />
+    <QtMoc Include="input\qcomboboxexplugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="buttons\QCheckBoxExPlugin.h" />
+    <QtMoc Include="buttons\qcheckboxexplugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="buttons\QRadioButtonExPlugin.h" />
+    <QtMoc Include="buttons\qradiobuttonexplugin.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="buttons\QToolButtonExPlugin.h" />
+    <QtMoc Include="buttons\qtoolbuttonexplugin.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

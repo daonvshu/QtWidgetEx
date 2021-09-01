@@ -166,34 +166,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <QtRcc Include="WidgetExTest.qrc" />
-    <QtUic Include="pages\Buttons.ui" />
-    <QtUic Include="pages\DisplayWidgets.ui" />
-    <QtUic Include="pages\InputWidgets.ui" />
-    <QtUic Include="WidgetExTest.ui" />
-    <QtMoc Include="WidgetExTest.h" />
-    <ClCompile Include="AsyncSetterTest.cpp" />
+    <QtRcc Include="widgetextest.qrc" />
+    <QtUic Include="pages\buttons.ui" />
+    <QtUic Include="pages\displaywidgets.ui" />
+    <QtUic Include="pages\inputwidgets.ui" />
+    <QtUic Include="widgetextest.ui" />
+    <QtMoc Include="widgetextest.h" />
+    <ClCompile Include="asyncsettertest.cpp" />
     <ClCompile Include="lifecycle\lifecycle\FragmentManager.cpp" />
-    <ClCompile Include="pages\ButtonsPage.cpp" />
-    <ClCompile Include="pages\ButtonsPage_p.cpp" />
-    <ClCompile Include="pages\DisplayWidgetsPage.cpp" />
-    <ClCompile Include="pages\DisplayWidgetsPage_p.cpp" />
-    <ClCompile Include="pages\InputWidgetsPage.cpp" />
-    <ClCompile Include="pages\InputWidgetsPage_p.cpp" />
-    <ClCompile Include="WidgetExTest.cpp" />
+    <ClCompile Include="pages\buttonspage.cpp" />
+    <ClCompile Include="pages\buttonspage_p.cpp" />
+    <ClCompile Include="pages\displaywidgetspage.cpp" />
+    <ClCompile Include="pages\displaywidgetspage_p.cpp" />
+    <ClCompile Include="pages\inputwidgetspage.cpp" />
+    <ClCompile Include="pages\inputwidgetspage_p.cpp" />
+    <ClCompile Include="widgetextest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="AsyncSetterTest.h" />
+    <QtMoc Include="asyncsettertest.h" />
     <ClInclude Include="lifecycle\lifecycle\FragmentManager.h" />
     <ClInclude Include="lifecycle\lifecycle\Impl.h" />
-    <ClInclude Include="pages\ButtonsPage.h" />
-    <ClInclude Include="pages\ButtonsPage_p.h" />
-    <ClInclude Include="pages\DisplayWidgetsPage.h" />
-    <ClInclude Include="pages\DisplayWidgetsPage_p.h" />
-    <ClInclude Include="pages\InputWidgetsPage.h" />
-    <ClInclude Include="pages\InputWidgetsPage_p.h" />
-    <ClInclude Include="utils\RunnableHandler.h" />
+    <ClInclude Include="pages\buttonspage.h" />
+    <ClInclude Include="pages\buttonspage_p.h" />
+    <ClInclude Include="pages\displaywidgetspage.h" />
+    <ClInclude Include="pages\displaywidgetspage_p.h" />
+    <ClInclude Include="pages\inputwidgetspage.h" />
+    <ClInclude Include="pages\inputwidgetspage_p.h" />
+    <ClInclude Include="utils\runnablehandler.h" />
     <QtMoc Include="lifecycle\lifecycle\LifeCycleWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
