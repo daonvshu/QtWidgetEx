@@ -1,9 +1,8 @@
 #include "widgetextest.h"
 #include <QtWidgets/QApplication>
 
-#include <QSslSocket>
-
 #include <qdebug.h>
+#include <QtNetwork/qsslsocket.h>
 
 int main(int argc, char *argv[])
 {

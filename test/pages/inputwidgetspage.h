@@ -3,7 +3,7 @@
 #include "../lifecycle/lifecycle/LifeCycleWidget.h"
 
 const char name_InputWidgetsPage[] = "InputWidgetsPage";
-class InputWidgetsPagePrivate;
+struct InputWidgetsPagePrivate;
 class InputWidgetsPage : public LifeCycleWidget<Mode_Standard, name_InputWidgetsPage> {
 	Q_DECLARE_PRIVATE(InputWidgetsPage);
 
