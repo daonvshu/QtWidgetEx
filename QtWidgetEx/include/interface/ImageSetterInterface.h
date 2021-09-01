@@ -7,8 +7,6 @@
 #include <qbitmap.h>
 #include <qpixmapcache.h>
 
-#include "utils/NetworkImageGetter.h"
-
 EX_BEGIN_NAMESPACE
 class ImageSetterCallback {
 public:
@@ -68,17 +66,21 @@ public:
         return *this;
     }
 
+#ifdef CONFIG_NETWORK_IMG
     inline ImageSetterInterface& network(
         const QString& url,
         const QString& placeholder = QString(),
         const QString& err = QString()
-    );
+    ) {
+        return network2(url, scaledIfTargetSizeIsSet(placeholder), scaledIfTargetSizeIsSet(err));
+    }
 
-    inline ImageSetterInterface& network2(
+    ImageSetterInterface& network2(
         const QString& url,
         const QPixmap& placeholder = QPixmap(),
         const QPixmap& err = QPixmap()
     );
+#endif
 
 protected:
     ImageSetterCallback* imageSetterCallback;
@@ -110,39 +112,4 @@ protected:
     }
 };
 
-//use inline to load network module optional
-
-inline ImageSetterInterface& ImageSetterInterface::network(const QString& url, const QString& placeholder, const QString& err) {
-    return network2(url, scaledIfTargetSizeIsSet(placeholder), scaledIfTargetSizeIsSet(err));
-}
-
-inline ImageSetterInterface& ImageSetterInterface::network2(const QString& url, const QPixmap& placeholder, const QPixmap& err) {
-
-    if (!lastLoadNetworkImg.isEmpty()) {
-        if (lastLoadNetworkImg != url) {
-            QPixmapCache::remove(lastLoadNetworkImg);
-        }
-    }
-    lastLoadNetworkImg = url;
-
-    QPixmap pixmapTag;
-    if (!QPixmapCache::find(url, &pixmapTag)) {
-        setValue(placeholder);
-
-        auto getter = new NetworkImageGetter(url);
-        connect(getter, &NetworkImageGetter::hasErr, this, [=](int) {
-            setValue(err);
-        });
-
-        connect(getter, &NetworkImageGetter::getImage, this, [=](QPixmap pixmap) {
-            auto target = scaledIfTargetSizeIsSet(pixmap);
-            QPixmapCache::insert(url, target);
-            setValue(target);
-        });
-        getter->start();
-    } else {
-        setValue(pixmapTag);
-    }
-    return *this;
-}
 EX_END_NAMESPACE

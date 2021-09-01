@@ -11,14 +11,14 @@ EX_BEGIN_NAMESPACE
 template<typename T>
 class CheckStateSetterCallback : public SimpleDataTargetSetterCallback<bool, T> {
 public:
-    using SimpleDataTargetSetterCallback::SimpleDataTargetSetterCallback;
+    using SimpleDataTargetSetterCallback<bool, T>::SimpleDataTargetSetterCallback;
 
     void setData(const bool& checked) override {
-        target->setChecked(checked);
+        SimpleDataTargetSetterCallback<bool, T>::target->setChecked(checked);
     }
 
     bool getData() override {
-        return target->isChecked();
+        return SimpleDataTargetSetterCallback<bool, T>::target->isChecked();
     }
 };
 EX_END_NAMESPACE
@@ -53,9 +53,9 @@ public:
 
 private:
     void setIconSync(const QIcon& icon, bool resize, const QSize& size) override {
-        setIcon(icon);
+        T::setIcon(icon);
         if (resize) {
-            setIconSize(size);
+            T::setIconSize(size);
         }
     }
 };

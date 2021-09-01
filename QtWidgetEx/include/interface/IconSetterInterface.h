@@ -55,6 +55,7 @@ public:
         return *this;
     }
 
+#ifdef CONFIG_NETWORK_IMG
     inline IconSetterInterface& network(
         const QString& url,
         const QString& placeholder = QString(),
@@ -72,6 +73,7 @@ public:
         ImageSetterInterface::network2(url, placeholder, err);
         return *this;
     }
+#endif
 
 private:
     void operator=(const QBitmap& bitmap);

@@ -41,16 +41,16 @@ public:
     {}
 
     void setData(const T& data) override {
-        QStandardItemModel* model = target->model;
-        QModelIndex item = model->index(target->rowIndex, 0);
+        QStandardItemModel* model = SimpleDataTargetSetterCallback<T, ListElement>::target->model;
+        QModelIndex item = model->index(SimpleDataTargetSetterCallback<T, ListElement>::target->rowIndex, 0);
         if (item.isValid()) {
             model->setData(item, data, dataRole);
         }
     }
 
     T getData() override {
-        QStandardItemModel* model = target->model;
-        QModelIndex item = model->index(target->rowIndex, 0);
+        QStandardItemModel* model = SimpleDataTargetSetterCallback<T, ListElement>::target->model;
+        QModelIndex item = model->index(SimpleDataTargetSetterCallback<T, ListElement>::target->rowIndex, 0);
         return item.data(dataRole).value<T>();
     }
 

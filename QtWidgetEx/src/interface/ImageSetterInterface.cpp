@@ -1,5 +1,7 @@
 ﻿#include "interface/ImageSetterInterface.h"
 
+#include "utils/NetworkImageGetter.h"
+
 EX_BEGIN_NAMESPACE
 ImageSetterInterface::ImageSetterInterface(ImageSetterCallback* imageSetterCallback, QObject* parent)
     : AsyncDataSetter(parent)
@@ -38,6 +40,37 @@ ImageSetterInterface& ImageSetterInterface::target(const QSize& size, Qt::Aspect
     targetTransform = transformMode;
     return *this;
 }
+
+#ifdef CONFIG_NETWORK_IMG
+ImageSetterInterface& ImageSetterInterface::network2(const QString& url, const QPixmap& placeholder, const QPixmap& err) {
+    if (!lastLoadNetworkImg.isEmpty()) {
+        if (lastLoadNetworkImg != url) {
+            QPixmapCache::remove(lastLoadNetworkImg);
+        }
+    }
+    lastLoadNetworkImg = url;
+
+    QPixmap pixmapTag;
+    if (!QPixmapCache::find(url, &pixmapTag)) {
+        setValue(placeholder);
+
+        auto getter = new NetworkImageGetter(url);
+        connect(getter, &NetworkImageGetter::hasErr, this, [=](int) {
+            setValue(err);
+        });
+
+        connect(getter, &NetworkImageGetter::getImage, this, [=](QPixmap pixmap) {
+            auto target = scaledIfTargetSizeIsSet(pixmap);
+            QPixmapCache::insert(url, target);
+            setValue(target);
+        });
+        getter->start();
+    } else {
+        setValue(pixmapTag);
+    }
+    return *this;
+}
+#endif
 
 void ImageSetterInterface::setDataInMainThread(const QVariant& value) {
     if (imageSetterCallback != nullptr) {

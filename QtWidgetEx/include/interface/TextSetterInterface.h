@@ -16,14 +16,14 @@ public:
 template<typename T>
 class TextSetterCallback : public SimpleDataTargetSetterCallback<QString, T> {
 public:
-    using SimpleDataTargetSetterCallback::SimpleDataTargetSetterCallback;
+    using SimpleDataTargetSetterCallback<QString, T>::SimpleDataTargetSetterCallback;
 
     void setData(const QString& text) override {
-        target->setText(text);
+        SimpleDataTargetSetterCallback<QString, T>::target->setText(text);
     }
 
     QString getData() override {
-        return target->text();
+        return SimpleDataTargetSetterCallback<QString, T>::target->text();
     }
 };
 EX_END_NAMESPACE

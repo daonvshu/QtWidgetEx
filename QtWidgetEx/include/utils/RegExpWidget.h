@@ -21,7 +21,7 @@ public:
 
     void setRegValidator(QValidator* validator) override {
         validator->setParent(this);
-        setValidator(validator);
+        E::setValidator(validator);
     }
 };
 
