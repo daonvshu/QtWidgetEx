@@ -54,6 +54,7 @@ void ButtonGroupUtil::operator+=(const std::function<void(bool)>& clickCallback)
     });
 }
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 void ButtonGroupUtil::operator+=(const std::function<void(int, bool)>& idClickCallback) {
     auto group = button->group();
     Q_ASSERT_X(group != nullptr, "click event", "button group not set!");
@@ -61,6 +62,7 @@ void ButtonGroupUtil::operator+=(const std::function<void(int, bool)>& idClickCa
         idClickCallback(id, group->id(this->button) == id);
     });
 }
+#endif
 
 QButtonGroup* ButtonGroupUtil::operator()() {
     return button->group();

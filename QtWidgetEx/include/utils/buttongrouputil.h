@@ -24,7 +24,10 @@ public:
     _widget_ex::SimpleAsyncDataSetter<bool> exclusive;
 
     void operator+=(const std::function<void(bool)>& clickCallback);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
     void operator+=(const std::function<void(int, bool)>& idClickCallback);
+#endif
 
     QButtonGroup* operator()();
 
