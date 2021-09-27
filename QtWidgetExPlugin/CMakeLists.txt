@@ -6,10 +6,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_BUILD_TYPE Release)
-
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
-
 find_package(Qt5 COMPONENTS Core Gui Widgets)
 
 add_library(${PROJECT_NAME} SHARED
@@ -31,8 +27,15 @@ add_library(qtwidgetex::plugin ALIAS ${PROJECT_NAME})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets qtwidgetex::lib)
 
+if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+    set(TARGET_OUTPUT_NAME "qwidgetexplugin_d")
+else()
+    set(TARGET_OUTPUT_NAME "qwidgetexplugin")
+endif()
+message("config output name: ${TARGET_OUTPUT_NAME}")
+
 message("qt5 designer dir: ${Qt5_DIR}/../../../plugins/designer")
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> ${Qt5_DIR}/../../../plugins/designer
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJECT_NAME}> ${Qt5_DIR}/../../../plugins/designer/${TARGET_OUTPUT_NAME}.dll
 )
