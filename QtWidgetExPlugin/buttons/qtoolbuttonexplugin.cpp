@@ -64,5 +64,5 @@ QString QToolButtonExPlugin::domXml() const {
 }
 
 QString QToolButtonExPlugin::includeFile() const {
-    return "QToolButtonEx.h";
+    return "qtoolbuttonex.h";
 }

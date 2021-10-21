@@ -64,5 +64,5 @@ QString QRadioButtonExPlugin::domXml() const {
 }
 
 QString QRadioButtonExPlugin::includeFile() const {
-    return "QRadioButtonEx.h";
+    return "qradiobuttonex.h";
 }

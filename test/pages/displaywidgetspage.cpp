@@ -5,6 +5,7 @@
 
 #include <qbitmap.h>
 #include <qbuffer.h>
+#include <qtimer.h>
 
 DisplayWidgetsPage::DisplayWidgetsPage(QWidget* parent)
 	: LifeCycleWidget(*new DisplayWidgetsPagePrivate, parent)
@@ -92,5 +93,27 @@ void DisplayWidgetsPagePrivate::setLabelExGifTest() {
 		});
 	} else {
 		setLabelExGif(":/WidgetExTest/res/2.gif");
+	}
+}
+
+void DisplayWidgetsPagePrivate::setProgressTest() {
+	static int num;
+	num = 0;
+	if (setInThread()) {
+		RunnableHandler<void>::exec([&] {
+            while (num++ < 100) {
+				setProgressBarValue(num);
+				QThread::msleep(50);
+            }
+		});
+	} else {
+		auto timer = new QTimer(this);
+		connect(timer, &QTimer::timeout, this, [&, timer] {
+			if (num++ >= 100) {
+				timer->stop();
+			}
+			setProgressBarValue(num);
+		});
+		timer->start(50);
 	}
 }

@@ -30,6 +30,8 @@ struct DisplayWidgetsPagePrivate : public ImplPrivate {
 	void setLabelExImg(const QString& urlImg, const QSize& tagSize);
 
 	void setLabelExGif(const QString& path);
+
+	void setProgressBarValue(int value);
 	//view model
 
 	void setLabelExTextTest();
@@ -38,6 +40,8 @@ struct DisplayWidgetsPagePrivate : public ImplPrivate {
 	void setLabelExImgTest();
 
 	void setLabelExGifTest();
+
+	void setProgressTest();
 
 	DisplayWidgetsPageView* view;
 

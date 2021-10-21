@@ -61,5 +61,5 @@ QString QComboBoxExPlugin::domXml() const {
 }
 
 QString QComboBoxExPlugin::includeFile() const {
-    return "QComboBoxEx.h";
+    return "qcomboboxex.h";
 }

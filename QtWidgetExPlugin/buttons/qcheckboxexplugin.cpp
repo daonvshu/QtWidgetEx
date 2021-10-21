@@ -64,5 +64,5 @@ QString QCheckBoxExPlugin::domXml() const {
 }
 
 QString QCheckBoxExPlugin::includeFile() const {
-    return "QCheckBoxEx.h";
+    return "qcheckboxex.h";
 }

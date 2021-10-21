@@ -1,6 +1,7 @@
 #include "qtwidgetexplugin.h"
 
 #include "display/qlabelexplugin.h"
+#include "display/qprogressbarexplugin.h"
 
 #include "buttons/qpushbuttonexplugin.h"
 #include "buttons/qcheckboxexplugin.h"
@@ -14,6 +15,7 @@ QtWidgetExPlugin::QtWidgetExPlugin(QObject* parent)
     : QObject(parent)
 {
     widgets << new QLabelExPlugin(this);
+    widgets << new QProgressBarExPlugin(this);
 
     widgets << new QPushButtonExPlugin(this);
     widgets << new QCheckBoxExPlugin(this);

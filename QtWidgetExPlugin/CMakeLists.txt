@@ -9,17 +9,27 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5 COMPONENTS Core Gui Widgets)
 
 add_library(${PROJECT_NAME} SHARED
+    buttons/qcheckboxexplugin.h
     buttons/qcheckboxexplugin.cpp
+    buttons/qpushbuttonexplugin.h
     buttons/qpushbuttonexplugin.cpp
+    buttons/qradiobuttonexplugin.h
     buttons/qradiobuttonexplugin.cpp
+    buttons/qtoolbuttonexplugin.h
     buttons/qtoolbuttonexplugin.cpp
     
+    display/qlabelexplugin.h
     display/qlabelexplugin.cpp
-
+    display/qprogressbarexplugin.h
+    display/qprogressbarexplugin.cpp
+    
+    input/qcomboboxexplugin.h
     input/qcomboboxexplugin.cpp
+    input/qlineeditexplugin.h
     input/qlineeditexplugin.cpp
 
     formeditor.qrc
+    qtwidgetexplugin.h
     qtwidgetexplugin.cpp
 )
 

@@ -216,6 +216,40 @@
         </widget>
        </item>
        <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>GroupBox</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QProgressBarEx" name="set_value_test_progressbar">
+              <property name="value">
+               <number>24</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="progress_set">
+              <property name="text">
+               <string>set</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBoxEx" name="progress_update_immediately">
+              <property name="text">
+               <string>update immediately</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -244,6 +278,16 @@
    <class>QPushButtonEx</class>
    <extends>QPushButton</extends>
    <header>QPushButtonEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QCheckBoxEx</class>
+   <extends>QCheckBox</extends>
+   <header>QCheckBoxEx.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QProgressBarEx</class>
+   <extends>QProgressBar</extends>
+   <header>qprogressbarex.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

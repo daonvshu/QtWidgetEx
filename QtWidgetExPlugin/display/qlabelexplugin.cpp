@@ -64,5 +64,5 @@ QString QLabelExPlugin::domXml() const {
 }
 
 QString QLabelExPlugin::includeFile() const {
-    return "QLabelEx.h";
+    return "qlabelex.h";
 }

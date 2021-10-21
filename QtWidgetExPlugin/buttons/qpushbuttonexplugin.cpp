@@ -64,5 +64,5 @@ QString QPushButtonExPlugin::domXml() const {
 }
 
 QString QPushButtonExPlugin::includeFile() const {
-    return "QPushButtonEx.h";
+    return "qpushbuttonex.h";
 }

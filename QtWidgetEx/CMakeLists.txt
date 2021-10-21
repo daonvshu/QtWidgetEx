@@ -23,6 +23,7 @@ add_library(${PROJECT_NAME}
     src/buttons/qtoolbuttonex.cpp
     
     src/display/qlabelex.cpp
+    src/display/qprogressbarex.cpp
 
     src/input/qcomboboxex.cpp
     src/input/qlineeditex.cpp
@@ -48,6 +49,7 @@ add_library(${PROJECT_NAME}
     include/qpushbuttonex.h
     include/qradiobuttonex.h
     include/qtoolbuttonex.h
+    include/qprogressbarex.h
 
     include/eventex/mouseeventex.h
     include/eventex/simpleeventex.h

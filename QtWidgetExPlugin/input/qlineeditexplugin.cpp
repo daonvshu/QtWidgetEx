@@ -61,5 +61,5 @@ QString QLineEditExPlugin::domXml() const {
 }
 
 QString QLineEditExPlugin::includeFile() const {
-    return "QLineEditEx.h";
+    return "qlineeditex.h";
 }

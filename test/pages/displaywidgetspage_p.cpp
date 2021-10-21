@@ -64,6 +64,11 @@ void DisplayWidgetsPagePrivate::bindView(QWidget* parent) {
 		view->set_gif_test_label->gif()->setPaused(view->set_gif_test_label->gif()->state() != QMovie::Paused);
 	};
 
+	view->progress_set->clickEvt += [&](bool) {
+		view->set_value_test_progressbar->updateImmediately = view->progress_update_immediately->checked();
+		setProgressTest();
+	};
+
 	connect(view->labelex_gif_speed, qOverload<const QString&>(&QComboBox::currentIndexChanged), [&](const QString& str) {
 		auto m = view->set_gif_test_label->gif();
 		if (m != nullptr) {
@@ -120,4 +125,8 @@ void DisplayWidgetsPagePrivate::setLabelExImg(const QString& urlImg, const QSize
 void DisplayWidgetsPagePrivate::setLabelExGif(const QString& path) {
 	view->labelex_gif_speed->setCurrentIndex(0);
 	view->set_gif_test_label->gif = path;
+}
+
+void DisplayWidgetsPagePrivate::setProgressBarValue(int value) {
+	view->set_value_test_progressbar->value = value;
 }
