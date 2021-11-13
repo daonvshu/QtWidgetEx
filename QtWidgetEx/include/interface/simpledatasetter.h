@@ -2,6 +2,8 @@
 
 #include "asyncdatasetter.h"
 
+#include <functional>
+
 EX_BEGIN_NAMESPACE
 template<typename T>
 class SimpleDataSetterCallback {
@@ -40,8 +42,7 @@ public:
         return callback->getData();
     }
 
-    typedef T(*DataConvert)(const QVariant&);
-    DataConvert dataConvert;
+    std::function<T(const QVariant&)> dataConvert;
 
 private:
     void setDataInMainThread(const QVariant& value) override {
