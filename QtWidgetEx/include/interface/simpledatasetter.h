@@ -10,12 +10,14 @@ class SimpleDataSetterCallback {
 public:
     virtual void setData(const T&) = 0;
     virtual T getData() = 0;
+
+    virtual ~SimpleDataSetterCallback() = default;
 };
 
 template<typename T, typename W>
 class SimpleDataTargetSetterCallback : public SimpleDataSetterCallback<T>, QObject {
 public:
-    explicit SimpleDataTargetSetterCallback(W* widget) : target(widget), QObject(widget) {}
+    explicit SimpleDataTargetSetterCallback(W* widget) : QObject(widget), target(widget) {}
 
 protected:
     W* target;
@@ -26,8 +28,8 @@ class SimpleAsyncDataSetter : protected AsyncDataSetter {
 public:
     explicit SimpleAsyncDataSetter(SimpleDataSetterCallback<T>* callback, QObject* parent = nullptr)
         : AsyncDataSetter(parent)
-        , callback(callback)
         , dataConvert(nullptr)
+        , callback(callback)
     {}
 
     T last() const {
@@ -40,6 +42,11 @@ public:
 
     T operator()() const {
         return callback->getData();
+    }
+
+    void replaceCallback(SimpleDataSetterCallback<T>* callback) {
+        delete this->callback;
+        this->callback = callback;
     }
 
     std::function<T(const QVariant&)> dataConvert;
