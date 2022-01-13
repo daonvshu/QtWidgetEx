@@ -22,8 +22,8 @@ void AsyncDataSetter::pendingToSetValue() {
 
 void AsyncDataSetter::setValue(const QVariant& value) {
     if (QThread::currentThreadId() == mainThread) {
-        setDataInMainThread(value);
         lastSetData = value;
+        setDataInMainThread(lastSetData);
     } else {
         bool needRequestTask = false;
         mutex.lock();
