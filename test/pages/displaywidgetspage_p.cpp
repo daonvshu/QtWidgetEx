@@ -69,6 +69,11 @@ void DisplayWidgetsPagePrivate::bindView(QWidget* parent) {
 		setProgressTest();
 	};
 
+	view->label_precision_test->text.applyPrecision(4, true);
+	view->btn_convert->clickEvt += [&](bool) {
+		view->label_precision_test->text = view->input_percision_test_value->text().toDouble();
+	};
+
 	connect(view->labelex_gif_speed, qOverload<const QString&>(&QComboBox::currentIndexChanged), [&](const QString& str) {
 		auto m = view->set_gif_test_label->gif();
 		if (m != nullptr) {

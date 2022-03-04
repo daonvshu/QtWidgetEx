@@ -212,6 +212,47 @@
             </item>
            </layout>
           </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>precision convert test:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="input_percision_test_value"/>
+            </item>
+            <item>
+             <widget class="QPushButtonEx" name="btn_convert">
+              <property name="text">
+               <string>convert</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabelEx" name="label_precision_test">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
          </layout>
         </widget>
        </item>
@@ -272,22 +313,22 @@
   <customwidget>
    <class>QLabelEx</class>
    <extends>QLabel</extends>
-   <header>QLabelEx.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QPushButtonEx</class>
-   <extends>QPushButton</extends>
-   <header>QPushButtonEx.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QCheckBoxEx</class>
-   <extends>QCheckBox</extends>
-   <header>QCheckBoxEx.h</header>
+   <header>qlabelex.h</header>
   </customwidget>
   <customwidget>
    <class>QProgressBarEx</class>
    <extends>QProgressBar</extends>
    <header>qprogressbarex.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QPushButtonEx</class>
+   <extends>QPushButton</extends>
+   <header>qpushbuttonex.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QCheckBoxEx</class>
+   <extends>QCheckBox</extends>
+   <header>qcheckboxex.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

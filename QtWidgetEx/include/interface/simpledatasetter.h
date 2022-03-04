@@ -3,6 +3,7 @@
 #include "asyncdatasetter.h"
 
 #include <functional>
+#include <qlocale.h>
 
 EX_BEGIN_NAMESPACE
 template<typename T>
@@ -50,6 +51,16 @@ public:
     }
 
     std::function<T(const QVariant&)> dataConvert;
+
+    void applyPrecision(int prec, bool shortVer = false) {
+        dataConvert = [=](const QVariant& data) {
+            auto d = data.toDouble();
+            if (shortVer) {
+                return QString::number(QString::number(d, 'f', prec).toDouble(), 'f', QLocale::FloatingPointShortest);
+            }
+            return QString::number(d, 'f', prec);
+        };
+    }
 
 private:
     void setDataInMainThread(const QVariant& value) override {
