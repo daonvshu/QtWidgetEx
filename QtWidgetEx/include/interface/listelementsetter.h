@@ -8,14 +8,25 @@
 #include "interface/simpledatasetter.h"
 
 EX_BEGIN_NAMESPACE
-class ListElementSetter;
+
+class ElementVariantDataSetter : public SimpleAsyncDataSetter<QVariant> {
+public:
+    using SimpleAsyncDataSetter<QVariant>::SimpleAsyncDataSetter;
+    using SimpleAsyncDataSetter<QVariant>::operator=;
+
+private:
+    void setDataRole(int role) const;
+
+    friend class ListElementSetter;
+};
+
 class ListElement: public QObject {
 public:
     ListElement(QStandardItemModel* model, int rowIndex, int role = Qt::UserRole);
 
     SimpleAsyncDataSetter<QString> text;
     SimpleAsyncDataSetter<QIcon> icon;
-    SimpleAsyncDataSetter<QVariant> data;
+    ElementVariantDataSetter data;
 
     ListElement& setText(const QString& text);
     ListElement& setIcon(const QIcon& icon);
@@ -24,7 +35,6 @@ public:
 private:
     int rowIndex;
     QStandardItemModel* model;
-    int dataRole;
 
     template<typename T>
     friend class ModelItemDataSetterCallback;

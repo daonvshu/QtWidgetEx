@@ -37,8 +37,9 @@ public:
         return lastSetData.value<T>();
     }
 
-    void operator=(const T& data) {
+    SimpleAsyncDataSetter& operator=(const T& data) {
         setValue(data);
+        return *this;
     }
 
     T operator()() const {
@@ -71,7 +72,7 @@ private:
         }
     }
 
-private:
+protected:
     SimpleDataSetterCallback<T>* callback;
 };
 

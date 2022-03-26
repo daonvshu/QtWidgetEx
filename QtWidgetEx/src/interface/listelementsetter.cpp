@@ -15,7 +15,7 @@ ListElementSetter& ListElementSetter::operator<<(const QString& text) {
 
 ListElement& ListElementSetter::operator()(int index, int role) {
     element.rowIndex = index;
-    element.dataRole = role;
+    element.data.setDataRole(role);
     return element;
 }
 
@@ -36,7 +36,6 @@ void ListElementSetter::remove(int index) const {
 int ListElementSetter::size() const {
     return model->rowCount();
 }
-
 
 template<typename T>
 class ModelItemDataSetterCallback : public SimpleDataTargetSetterCallback<T, ListElement> {
@@ -62,7 +61,14 @@ public:
 
 private:
     int dataRole;
+
+    friend class ListElementSetter;
+    friend class ElementVariantDataSetter;
 };
+
+void ElementVariantDataSetter::setDataRole(int role) const {
+    dynamic_cast<ModelItemDataSetterCallback<QVariant>*>(callback)->dataRole = role;
+}
 
 ListElement::ListElement(QStandardItemModel* model, int rowIndex, int role)
     : QObject(model)
@@ -71,7 +77,6 @@ ListElement::ListElement(QStandardItemModel* model, int rowIndex, int role)
     , data(new ModelItemDataSetterCallback<QVariant>(this, role))
     , rowIndex(rowIndex)
     , model(model)
-    , dataRole(role)
 {
 }
 
