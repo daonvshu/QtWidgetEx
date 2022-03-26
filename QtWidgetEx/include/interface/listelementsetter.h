@@ -11,7 +11,7 @@ EX_BEGIN_NAMESPACE
 class ListElementSetter;
 class ListElement: public QObject {
 public:
-    ListElement(QStandardItemModel* model, int rowIndex, Qt::ItemDataRole role = Qt::UserRole);
+    ListElement(QStandardItemModel* model, int rowIndex, int role = Qt::UserRole);
 
     SimpleAsyncDataSetter<QString> text;
     SimpleAsyncDataSetter<QIcon> icon;
@@ -24,7 +24,7 @@ public:
 private:
     int rowIndex;
     QStandardItemModel* model;
-    Qt::ItemDataRole dataRole;
+    int dataRole;
 
     template<typename T>
     friend class ModelItemDataSetterCallback;
@@ -43,10 +43,11 @@ public:
 
     ListElementSetter& operator<<(const QString& text);
 
-    ListElement& operator()(int index, Qt::ItemDataRole dataRole = Qt::UserRole);
+    ListElement& operator()(int index, int dataRole = Qt::UserRole);
 
-    void insert(int index, const QString& text);
-    void remove(int index);
+    void insert(int index, const QString& text) const;
+    void insert(int index, const QVariant& data, int dataRole = Qt::UserRole) const;
+    void remove(int index) const;
 
     int size() const;
 

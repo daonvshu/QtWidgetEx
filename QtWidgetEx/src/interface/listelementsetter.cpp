@@ -13,17 +13,23 @@ ListElementSetter& ListElementSetter::operator<<(const QString& text) {
     return *this;
 }
 
-ListElement& ListElementSetter::operator()(int index, Qt::ItemDataRole role) {
+ListElement& ListElementSetter::operator()(int index, int role) {
     element.rowIndex = index;
     element.dataRole = role;
     return element;
 }
 
-void ListElementSetter::insert(int index, const QString& text) {
+void ListElementSetter::insert(int index, const QString& text) const {
     model->insertRow(index, new QStandardItem(text));
 }
 
-void ListElementSetter::remove(int index) {
+void ListElementSetter::insert(int index, const QVariant& data, int dataRole) const {
+    auto item = new QStandardItem;
+    item->setData(data, dataRole);
+    model->insertRow(index, item);
+}
+
+void ListElementSetter::remove(int index) const {
     model->removeRow(index);
 }
 
@@ -35,7 +41,7 @@ int ListElementSetter::size() const {
 template<typename T>
 class ModelItemDataSetterCallback : public SimpleDataTargetSetterCallback<T, ListElement> {
 public:
-    explicit ModelItemDataSetterCallback(ListElement* element, Qt::ItemDataRole role)
+    explicit ModelItemDataSetterCallback(ListElement* element, int role)
         : SimpleDataTargetSetterCallback<T, ListElement>(element)
         , dataRole(role)
     {}
@@ -55,17 +61,17 @@ public:
     }
 
 private:
-    Qt::ItemDataRole dataRole;
+    int dataRole;
 };
 
-ListElement::ListElement(QStandardItemModel* model, int rowIndex, Qt::ItemDataRole role)
+ListElement::ListElement(QStandardItemModel* model, int rowIndex, int role)
     : QObject(model)
-    , model(model)
-    , rowIndex(rowIndex)
-    , dataRole(role)
     , text(new ModelItemDataSetterCallback<QString>(this, Qt::DisplayRole))
     , icon(new ModelItemDataSetterCallback<QIcon>(this, Qt::DecorationRole))
-    , data(new ModelItemDataSetterCallback<QVariant>(this, dataRole))
+    , data(new ModelItemDataSetterCallback<QVariant>(this, role))
+    , rowIndex(rowIndex)
+    , model(model)
+    , dataRole(role)
 {
 }
 
