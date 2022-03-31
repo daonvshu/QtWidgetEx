@@ -49,7 +49,7 @@ ButtonGroupUtil::ButtonGroupUtil(QAbstractButton* button)
 void ButtonGroupUtil::operator+=(const std::function<void(bool)>& clickCallback) {
     auto group = button->group();
     Q_ASSERT_X(group != nullptr, "click event", "button group not set!");
-    QObject::connect(group, qOverload<QAbstractButton*>(&QButtonGroup::buttonClicked), [=](QAbstractButton* btn) {
+    QObject::connect(group, static_cast<void(QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked), [=](QAbstractButton* btn) {
         clickCallback(btn == this->button);
     });
 }
