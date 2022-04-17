@@ -54,35 +54,43 @@ void NetworkImageGetter::run() {
     auto reply = manager->get(request);
 
     QTimer timeout;
-    connect(&timeout, &QTimer::timeout, [&] {
+    bool getTimeout = false;
+    connect(&timeout, &QTimer::timeout, manager, [&] {
+        getTimeout = true;
+        qDebug() << "get image timeout! url:" << targetUrl;
         reply->abort();
-        qDebug() << "get image timeout!";
-        loop.quit();
+        //loop.quit();
     });
     timeout.setSingleShot(true);
     timeout.start(6000);
     loop.exec();
-    timeout.stop();
-
-    auto statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
-    int statusCodeV;
-    if (statusCode.isValid() && (statusCodeV = statusCode.toInt()) != 200) {
-        qDebug() << "network error, status: " << statusCodeV;
-        emit hasErr(statusCodeV);
-    } else {
-        auto err = reply->error();
-        if (statusCode.isValid() || err == QNetworkReply::NoError) {
-            QPixmap pixmap;
-            pixmap.loadFromData(reply->readAll());
-            emit getImage(pixmap);
+    if (timeout.isActive()) {
+        timeout.stop();
+    }
+    if (!getTimeout) {
+        auto statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+        int statusCodeV;
+        if (statusCode.isValid() && (statusCodeV = statusCode.toInt()) != 200) {
+            qDebug() << "network error, status: " << statusCodeV;
+            emit hasErr(statusCodeV);
         } else {
-            qDebug() << err;
-            emit hasErr(err);
+            auto err = reply->error();
+            if (statusCode.isValid() || err == QNetworkReply::NoError) {
+                QPixmap pixmap;
+                pixmap.loadFromData(reply->readAll());
+                emit getImage(pixmap);
+            } else {
+                qDebug() << err;
+                emit hasErr(err);
+            }
         }
+    } else {
+        qDebug() << "request exit with timeout!";
+        emit hasErr(-1);
     }
 
-    delete reply;
-    delete manager;
+    reply->deleteLater();
+    manager->deleteLater();
 
     deleteLater();
 }

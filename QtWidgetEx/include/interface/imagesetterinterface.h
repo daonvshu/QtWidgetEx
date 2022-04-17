@@ -110,6 +110,10 @@ protected:
     inline QPixmap scaledIfTargetSizeIsSet(const QString& source) {
         return scaledIfTargetSizeIsSet(QPixmap(source));
     }
+
+#ifdef CONFIG_NETWORK_IMG
+    void requestImageFromNetwork(const QString& url, const QPixmap& err, int requestCount);
+#endif
 };
 
 EX_END_NAMESPACE

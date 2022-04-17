@@ -42,6 +42,25 @@ ImageSetterInterface& ImageSetterInterface::target(const QSize& size, Qt::Aspect
 }
 
 #ifdef CONFIG_NETWORK_IMG
+
+void ImageSetterInterface::requestImageFromNetwork(const QString& url, const QPixmap& err, int requestCount) {
+    auto getter = new NetworkImageGetter(url);
+    connect(getter, &NetworkImageGetter::hasErr, this, [=](int) {
+        if (requestCount > 0) {
+            requestImageFromNetwork(url, err, requestCount - 1);
+        } else {
+            setValue(err);
+        }
+    });
+
+    connect(getter, &NetworkImageGetter::getImage, this, [=](QPixmap pixmap) {
+        auto target = scaledIfTargetSizeIsSet(pixmap);
+        QPixmapCache::insert(url, target);
+        setValue(target);
+    });
+    getter->start();
+}
+
 ImageSetterInterface& ImageSetterInterface::network2(const QString& url, const QPixmap& placeholder, const QPixmap& err) {
     if (!lastLoadNetworkImg.isEmpty()) {
         if (lastLoadNetworkImg != url) {
@@ -53,18 +72,7 @@ ImageSetterInterface& ImageSetterInterface::network2(const QString& url, const Q
     QPixmap pixmapTag;
     if (!QPixmapCache::find(url, &pixmapTag)) {
         setValue(placeholder);
-
-        auto getter = new NetworkImageGetter(url);
-        connect(getter, &NetworkImageGetter::hasErr, this, [=](int) {
-            setValue(err);
-        });
-
-        connect(getter, &NetworkImageGetter::getImage, this, [=](QPixmap pixmap) {
-            auto target = scaledIfTargetSizeIsSet(pixmap);
-            QPixmapCache::insert(url, target);
-            setValue(target);
-        });
-        getter->start();
+        requestImageFromNetwork(url, err, 3);
     } else {
         setValue(pixmapTag);
     }
