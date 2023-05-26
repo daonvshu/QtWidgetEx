@@ -1,3 +1,0 @@
-[submodule "test/lifecycle"]
-	path = test/lifecycle
-	url = git@github.com:daonvshu/QtLifecycleDemo.git

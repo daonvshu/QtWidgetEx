@@ -3,4 +3,9 @@ project(QtWidgetExProject)
 
 add_subdirectory(QtWidgetEx)
 add_subdirectory(QtWidgetExPlugin)
-add_subdirectory(test)
+
+option(WIDGETEX_BUILD_TEST "enable qtwidgetex test project" OFF)
+
+if (WIDGETEX_BUILD_TEST)
+    add_subdirectory(test)
+endif ()
