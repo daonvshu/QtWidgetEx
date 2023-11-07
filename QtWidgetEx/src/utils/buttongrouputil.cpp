@@ -68,6 +68,24 @@ QButtonGroup* ButtonGroupUtil::operator()() {
     return button->group();
 }
 
+void ButtonGroupUtil::setCancelableInGroup() {
+    cancelableInGroup = true;
+    if (auto group = button->group()) {
+        QObject::connect(group, static_cast<void(QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked), [&](QAbstractButton* btn) {
+            if (lastCheckButton == btn) {
+                if (cancelableInGroup) {
+                    exclusive = false;
+                    btn->setChecked(false);
+                    exclusive = true;
+                    lastCheckButton = nullptr;
+                }
+            } else {
+                lastCheckButton = btn;
+            }
+        });
+    }
+}
+
 void ButtonGroupUtil::create(int size, ...) {
     va_list valist;
 

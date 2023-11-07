@@ -37,8 +37,13 @@ public:
         create(sizeof...(buttons) + 1, button, buttons...);
     }
 
+    void setCancelableInGroup();
+
 private:
     QAbstractButton* button;
+
+    QAbstractButton* lastCheckButton = nullptr;
+    bool cancelableInGroup = false;
 
     friend class _widget_ex::IdSetterCallback;
     friend class _widget_ex::ExclusiveCallback;
