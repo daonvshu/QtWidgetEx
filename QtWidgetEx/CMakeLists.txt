@@ -4,7 +4,8 @@ project(qtwidgetex)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt5 COMPONENTS Core Gui Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui Widgets)
 
 if(CONFIG_NETWORK_IMG)
 message("config network image!")
@@ -69,8 +70,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC include/)
 
 add_library(qtwidgetex::lib ALIAS ${PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets)
 
 if(CONFIG_NETWORK_IMG)
-target_link_libraries(${PROJECT_NAME} Qt5::Network)
+target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Network)
 endif()

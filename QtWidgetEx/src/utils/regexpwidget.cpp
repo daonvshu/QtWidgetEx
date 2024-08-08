@@ -1,5 +1,7 @@
 #include "utils/regexpwidget.h"
 
+#include <qregularexpression.h>
+
 class MyIntValidator : public QIntValidator {
 public:
     using QIntValidator::QIntValidator;
@@ -32,13 +34,12 @@ void RegExpWidgetImpl::setRegExpression(const QString& reg) {
         do {
             //like "-int(-1,100)", min -> -1 max -> 100
             if (reg.startsWith("-int")) {
-                QRegExp rx("(-?\\d+)");
                 QStringList list;
-                int pos = 0;
 
-                while ((pos = rx.indexIn(reg, pos)) != -1) {
-                    list << rx.cap(1);
-                    pos += rx.matchedLength();
+                static QRegularExpression rx(R"(-?\d+)");
+                auto it = rx.globalMatch(reg);
+                while (it.hasNext()) {
+                    list << it.next().captured(1);
                 }
 
                 if (list.size() >= 2) {
@@ -46,13 +47,12 @@ void RegExpWidgetImpl::setRegExpression(const QString& reg) {
                     break;
                 }
             } else if (reg.startsWith("-double")) {
-                QRegExp rx("(-?\\d+(\\.\\d+)?)");
+                static QRegularExpression rx(R"((-?\d+(\.\d+)?))");
                 QStringList list;
-                int pos = 0;
 
-                while ((pos = rx.indexIn(reg, pos)) != -1) {
-                    list << rx.cap(1);
-                    pos += rx.matchedLength();
+                auto it = rx.globalMatch(reg);
+                while (it.hasNext()) {
+                    list << it.next().captured(1);
                 }
 
                 if (list.size() >= 2) {
@@ -66,7 +66,7 @@ void RegExpWidgetImpl::setRegExpression(const QString& reg) {
                     break;
                 }
             }
-            setRegValidator(new QRegExpValidator(QRegExp(reg)));
+            setRegValidator(new QRegularExpressionValidator(QRegularExpression(reg)));
         } while (0);
     }
 }

@@ -20,9 +20,9 @@ void QLabelEx::setImageSync(const QImage& image) {
     setPixmap(QPixmap::fromImage(image));
 }
 
-void QLabelEx::setBitmapSync(const QBitmap& bitmap) {
-    setMask(bitmap);
-}
+//void QLabelEx::setBitmapSync(const QBitmap& bitmap) {
+//    setMask(bitmap);
+//}
 
 void QLabelEx::setMovie(QMovie* movie) {
     QLabel::setMovie(movie);

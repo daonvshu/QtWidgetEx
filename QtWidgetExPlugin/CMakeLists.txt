@@ -6,7 +6,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-find_package(Qt5 COMPONENTS Core Gui Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui Widgets)
 
 add_library(${PROJECT_NAME} SHARED
     buttons/qcheckboxexplugin.h
@@ -35,7 +36,7 @@ add_library(${PROJECT_NAME} SHARED
 
 add_library(qtwidgetex::plugin ALIAS ${PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Gui Qt5::Widgets qtwidgetex::lib)
+target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets qtwidgetex::lib)
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     set(TARGET_OUTPUT_NAME "qwidgetexplugin_d")

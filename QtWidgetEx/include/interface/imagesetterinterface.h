@@ -12,7 +12,7 @@ class ImageSetterCallback {
 public:
     virtual void setPixmapSync(const QPixmap&) = 0;
     virtual void setImageSync(const QImage&) = 0;
-    virtual void setBitmapSync(const QBitmap&) = 0;
+    //virtual void setBitmapSync(const QBitmap&) = 0;
 };
 
 class ImageSetterInterface: protected AsyncDataSetter {
@@ -27,7 +27,7 @@ private:
 public:
     virtual void operator=(const QPixmap& pixmap);
     virtual void operator=(const QImage& image);
-    virtual void operator=(const QBitmap& bitmap);
+    //virtual void operator=(const QBitmap& bitmap);
 
     virtual void operator=(const QString& imagePath);
 

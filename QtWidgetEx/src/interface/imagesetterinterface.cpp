@@ -25,9 +25,9 @@ void ImageSetterInterface::operator=(const QImage& image) {
     setValue(scaledIfTargetSizeIsSet(image));
 }
 
-void ImageSetterInterface::operator=(const QBitmap& bitmap) {
-    setValue(scaledIfTargetSizeIsSet(bitmap));
-}
+//void ImageSetterInterface::operator=(const QBitmap& bitmap) {
+//    setValue(scaledIfTargetSizeIsSet(bitmap));
+//}
 
 void ImageSetterInterface::operator=(const QString& imagePath) {
     setValue(scaledIfTargetSizeIsSet(imagePath));
@@ -82,6 +82,21 @@ ImageSetterInterface& ImageSetterInterface::network2(const QString& url, const Q
 
 void ImageSetterInterface::setDataInMainThread(const QVariant& value) {
     if (imageSetterCallback != nullptr) {
+#if QT_VERSION_MAJOR >= 6
+        switch (value.typeId()) {
+            case QMetaType::QPixmap:
+                imageSetterCallback->setPixmapSync(value.value<QPixmap>());
+                break;
+            case QMetaType::QImage:
+                imageSetterCallback->setImageSync(value.value<QImage>());
+                break;
+                //case QVariant::Bitmap:
+                //    imageSetterCallback->setBitmapSync(value.value<QBitmap>());
+                //    break;
+            default:
+                break;
+        }
+#else
         switch (value.type()) {
         case QVariant::Pixmap:
             imageSetterCallback->setPixmapSync(value.value<QPixmap>());
@@ -89,10 +104,13 @@ void ImageSetterInterface::setDataInMainThread(const QVariant& value) {
         case QVariant::Image:
             imageSetterCallback->setImageSync(value.value<QImage>());
             break;
-        case QVariant::Bitmap:
-            imageSetterCallback->setBitmapSync(value.value<QBitmap>());
+        //case QVariant::Bitmap:
+        //    imageSetterCallback->setBitmapSync(value.value<QBitmap>());
+        //    break;
+        default:
             break;
         }
+#endif
     }
 }
 EX_END_NAMESPACE

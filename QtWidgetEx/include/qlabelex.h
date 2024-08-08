@@ -25,7 +25,7 @@ public:
 protected:
     void setPixmapSync(const QPixmap& pixmap) override;
     void setImageSync(const QImage& image) override;
-    void setBitmapSync(const QBitmap& bitmap) override;
+    //void setBitmapSync(const QBitmap& bitmap) override;
 
     void setMovie(QMovie* movie) override;
 };
