@@ -1,7 +1,7 @@
 #pragma once
 
-#include <QtDesigner/QtDesigner>
 #include <QtCore/qplugin.h>
+#include <QtUiPlugin/QDesignerCustomWidgetInterface>
 
 class QtWidgetExPlugin : public QObject, public QDesignerCustomWidgetCollectionInterface {
     Q_OBJECT

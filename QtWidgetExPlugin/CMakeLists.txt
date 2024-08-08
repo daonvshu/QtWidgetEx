@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.12)
 project(QtWidgetExPlugin)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -36,7 +36,7 @@ add_library(${PROJECT_NAME} SHARED
 
 add_library(qtwidgetex::plugin ALIAS ${PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets qtwidgetex::lib)
+target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets qtwidgetex)
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     set(TARGET_OUTPUT_NAME "qwidgetexplugin_d")

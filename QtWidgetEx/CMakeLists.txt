@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.12)
 project(qtwidgetex)
 
 set(CMAKE_AUTOMOC ON)
@@ -13,6 +13,8 @@ file(GLOB NET_IMG src/utils/networkimagegetter.cpp include/utils/networkimageget
 find_package(Qt5Network)
 add_definitions(-DCONFIG_NETWORK_IMG)
 endif()
+
+set(CMAKE_DEBUG_POSTFIX "d")
 
 add_library(${PROJECT_NAME}
     src/buttons/qcheckboxex.cpp
@@ -66,12 +68,43 @@ add_library(${PROJECT_NAME}
     ${NET_IMG}
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC include/)
-
-add_library(qtwidgetex::lib ALIAS ${PROJECT_NAME})
-
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets)
 
 if(CONFIG_NETWORK_IMG)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Network)
 endif()
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+include(CMakePackageConfigHelpers)
+
+install(TARGETS ${PROJECT_NAME}
+    EXPORT QtWidgetExTargets
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    RUNTIME DESTINATION bin
+    INCLUDES DESTINATION include
+)
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
+    DESTINATION include
+    FILES_MATCHING PATTERN "*.h"
+)
+
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/QtWidgetExConfig.cmake.in
+    "${CMAKE_CURRENT_BINARY_DIR}/QtWidgetExConfig.cmake"
+    INSTALL_DESTINATION lib/cmake/QtWidgetEx
+)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/QtWidgetExConfig.cmake"
+    DESTINATION lib/cmake/QtWidgetEx
+)
+
+install(EXPORT QtWidgetExTargets
+    FILE QtWidgetExTargets.cmake
+    DESTINATION lib/cmake/QtWidgetEx
+)
