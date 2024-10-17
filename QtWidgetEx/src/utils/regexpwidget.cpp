@@ -1,6 +1,10 @@
 #include "utils/regexpwidget.h"
 
 #include <qregularexpression.h>
+#include <qloggingcategory.h>
+#include <qdebug.h>
+
+Q_LOGGING_CATEGORY(widgetExValidator, "widgetEx.validator")
 
 class MyIntValidator : public QIntValidator {
 public:
@@ -36,13 +40,14 @@ void RegExpWidgetImpl::setRegExpression(const QString& reg) {
             if (reg.startsWith("-int")) {
                 QStringList list;
 
-                static QRegularExpression rx(R"(-?\d+)");
-                auto it = rx.globalMatch(reg);
-                while (it.hasNext()) {
-                    list << it.next().captured(1);
+                static QRegularExpression rx(R"(-int\((-?\d+),(-?\d+)\))");
+                auto it = rx.match(reg);
+                if (it.hasMatch()) {
+                    list << it.captured(1) << it.captured(2);
                 }
 
                 if (list.size() >= 2) {
+                    qCInfo(widgetExValidator) << "set int validator range:" << list;
                     setRegValidator(new MyIntValidator(list[0].toInt(), list[1].toInt()));
                     break;
                 }
@@ -56,6 +61,7 @@ void RegExpWidgetImpl::setRegExpression(const QString& reg) {
                 }
 
                 if (list.size() >= 2) {
+                    qCInfo(widgetExValidator) << "set double validator range:" << list;
                     auto validator = new MyDoubleValidator;
                     if (list.size() > 2) {
                         validator->setRange(list[0].toDouble(), list[1].toDouble(), list[2].toInt());
