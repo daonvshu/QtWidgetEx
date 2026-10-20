@@ -14,8 +14,8 @@ void GifSetterInterface::operator=(const QString& gifPath) {
 
 void GifSetterInterface::setDataInMainThread(const QVariant& value) {
     if (callback != nullptr) {
-        switch (value.type()) {
-        case QVariant::String:
+        switch (value.userType()) {
+        case QMetaType::QString:
             {
                 if (gifRunner == nullptr) {
                     gifRunner = new QMovie(this);

@@ -18,8 +18,8 @@ void IconSetterInterface::setDataInMainThread(const QVariant& value) {
         auto size = targetSize;
         bool targetValid = true;
 
-        switch (value.type()) {
-        case QVariant::Pixmap:
+        switch (value.userType()) {
+        case QMetaType::QPixmap:
             {
                 auto pixmap = value.value<QPixmap>();
                 if (!pixmap.isNull()) {
@@ -34,7 +34,7 @@ void IconSetterInterface::setDataInMainThread(const QVariant& value) {
                 }
             }
             break;
-        case QVariant::Icon:
+        case QMetaType::QIcon:
             target = value.value<QIcon>();
             break;
         default:
